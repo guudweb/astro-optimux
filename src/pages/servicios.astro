@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import Footer from '../components/Footer.astro';
+import { getServicios } from '../lib/strapi';
+
+const servicios = await getServicios();
+---
+
+<Layout
+  title="Servicios - OptimuxSolutions"
+  description="Descubre nuestros servicios IT: servidores, videovigilancia, control de acceso y mantenimiento tecnológico para empresas."
+>
+  <Header />
+
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <Hero
+      title="Nuestros Servicios"
+      subtitle="Soluciones integrales de IT para empresas"
+      compact
+      showCTA={false}
+    />
+
+    <!-- Services List Section -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {servicios.map((servicio) => (
+            <ServiceCard
+              titulo={servicio.titulo}
+              descripcion={servicio.descripcion}
+              icono={servicio.icono}
+              caracteristicas={servicio.caracteristicas}
+              detailed
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <ContactCTA
+      title="¿Necesitas alguno de estos servicios?"
+      buttonText="Solicitar Información"
+    />
+  </main>
+
+  <Footer />
+</Layout>

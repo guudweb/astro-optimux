@@ -1,0 +1,70 @@
+---
+import { Server, Camera, DoorOpen, Wrench, Monitor, Shield, Wifi, HardDrive } from 'lucide-astro';
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  icono: string;
+  caracteristicas?: string[];
+  detailed?: boolean;
+}
+
+const { titulo, descripcion, icono, caracteristicas = [], detailed = false } = Astro.props;
+
+// Map icon names to components
+const iconMap: Record<string, any> = {
+  Server,
+  Camera,
+  DoorOpen,
+  Wrench,
+  Monitor,
+  Shield,
+  Wifi,
+  HardDrive,
+};
+
+const IconComponent = iconMap[icono] || Server;
+---
+
+<article class:list={[
+  'bg-white rounded-xl border border-border p-6 transition-all duration-300',
+  detailed
+    ? 'hover:shadow-lg'
+    : 'hover:shadow-md hover:border-primary/30 hover:-translate-y-1'
+]}>
+  <!-- Icon -->
+  <div class:list={[
+    'flex items-center justify-center rounded-lg bg-primary/10 text-primary',
+    detailed ? 'w-16 h-16 mb-6' : 'w-12 h-12 mb-4'
+  ]}>
+    <IconComponent class:list={[detailed ? 'w-8 h-8' : 'w-6 h-6']} />
+  </div>
+
+  <!-- Title -->
+  <h3 class:list={[
+    'font-semibold text-text-dark',
+    detailed ? 'text-xl mb-3' : 'text-lg mb-2'
+  ]}>
+    {titulo}
+  </h3>
+
+  <!-- Description -->
+  <p class:list={[
+    'text-text-gray leading-relaxed',
+    detailed ? 'text-base mb-4' : 'text-sm'
+  ]}>
+    {descripcion}
+  </p>
+
+  <!-- Features list (only for detailed view) -->
+  {detailed && caracteristicas.length > 0 && (
+    <ul class="mt-4 space-y-2">
+      {caracteristicas.map((caracteristica) => (
+        <li class="flex items-center gap-2 text-sm text-text-gray">
+          <span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
+          {caracteristica}
+        </li>
+      ))}
+    </ul>
+  )}
+</article>
