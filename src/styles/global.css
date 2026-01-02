@@ -1,19 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors */
+  /* Primary Colors */
   --color-primary: #2563EB;
   --color-primary-light: #3B82F6;
   --color-primary-dark: #1D4ED8;
 
   /* Text Colors */
-  --color-text-dark: #1F2937;
+  --color-text-dark: #111827;
   --color-text-gray: #4B5563;
   --color-text-light: #6B7280;
 
   /* Background Colors */
   --color-background: #FFFFFF;
   --color-background-alt: #F9FAFB;
+  --color-bg-dark: #111827;
+  --color-bg-gray: #1F2937;
+
+  /* Border */
   --color-border: #E5E7EB;
 
   /* Font Family */
@@ -33,5 +37,23 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-dark);
-  font-weight: 600;
+  font-weight: 700;
+}
+
+/* Smooth transitions */
+a, button {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Focus styles */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary);
+  color: white;
 }

@@ -1,106 +1,164 @@
 ---
-import { Menu, X } from 'lucide-astro';
+import { Menu, X, Globe } from 'lucide-astro';
 
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const languages = [
+  { code: 'en', label: 'English', flag: '🇬🇧' },
+  { code: 'es', label: 'Español', flag: '🇪🇸' },
+  { code: 'fr', label: 'Français', flag: '🇫🇷' },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border transition-shadow duration-300" id="header">
-  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2">
-        <img src="/logo.png" alt="OptimuxSolutions" class="h-10 w-auto" />
-      </a>
-
-      <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center gap-8">
-        {navLinks.map((link) => (
-          <a
-            href={link.href}
-            class:list={[
-              'text-sm font-medium transition-colors hover:text-primary',
-              currentPath === link.href ? 'text-primary' : 'text-text-gray'
-            ]}
-          >
-            {link.label}
-          </a>
-        ))}
-        <a
-          href="#contact"
-          class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors"
-        >
-          Contact Us
+<header class="sticky top-0 z-50">
+  <!-- Main nav -->
+  <nav class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <a href="/" class="flex items-center">
+          <img src="/logo.png" alt="OptimuxSolutions" class="h-12 w-auto" />
         </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class:list={[
+                  'font-medium transition-colors hover:text-primary',
+                  currentPath === link.href ? 'text-primary' : 'text-gray-700'
+                ]}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <!-- Right side: Language + CTA -->
+        <div class="hidden md:flex items-center gap-4">
+          <!-- Language Selector -->
+          <div class="relative" id="lang-dropdown-container">
+            <button
+              type="button"
+              class="flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-primary transition rounded-lg hover:bg-gray-100"
+              id="lang-btn"
+              aria-label="Select language"
+            >
+              <Globe class="w-5 h-5" />
+              <span class="text-sm font-medium">EN</span>
+            </button>
+            <div class="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 hidden" id="lang-menu">
+              {languages.map((lang) => (
+                <a
+                  href={`?lang=${lang.code}`}
+                  class="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition first:rounded-t-lg last:rounded-b-lg"
+                >
+                  <span>{lang.flag}</span>
+                  <span>{lang.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- CTA Button -->
+          <a
+            href="/contact"
+            class="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg font-semibold transition"
+          >
+            Contact Us
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+          type="button"
+          class="md:hidden p-2 text-gray-700 hover:text-primary transition-colors"
+          id="mobile-menu-btn"
+          aria-label="Open menu"
+        >
+          <Menu class="h-6 w-6" id="menu-icon" />
+          <X class="h-6 w-6 hidden" id="close-icon" />
+        </button>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button
-        type="button"
-        class="md:hidden p-2 text-text-gray hover:text-primary transition-colors"
-        id="mobile-menu-btn"
-        aria-label="Open menu"
-      >
-        <Menu class="h-6 w-6" id="menu-icon" />
-        <X class="h-6 w-6 hidden" id="close-icon" />
-      </button>
-    </div>
+      <!-- Mobile Navigation -->
+      <div class="hidden md:hidden" id="mobile-menu">
+        <div class="py-4 space-y-2 border-t border-gray-200">
+          {navLinks.map((link) => (
+            <a
+              href={link.href}
+              class:list={[
+                'block py-2 px-4 font-medium rounded-lg transition-colors',
+                currentPath === link.href
+                  ? 'text-primary bg-primary/5'
+                  : 'text-gray-700 hover:text-primary hover:bg-gray-50'
+              ]}
+            >
+              {link.label}
+            </a>
+          ))}
 
-    <!-- Mobile Navigation -->
-    <div class="hidden md:hidden" id="mobile-menu">
-      <div class="py-4 space-y-2 border-t border-border">
-        {navLinks.map((link) => (
+          <!-- Mobile Language Selector -->
+          <div class="px-4 py-2">
+            <p class="text-sm text-gray-500 mb-2">Language</p>
+            <div class="flex gap-2">
+              {languages.map((lang) => (
+                <a
+                  href={`?lang=${lang.code}`}
+                  class="flex items-center gap-1 px-3 py-1 text-sm bg-gray-100 rounded-full hover:bg-primary hover:text-white transition"
+                >
+                  <span>{lang.flag}</span>
+                  <span>{lang.code.toUpperCase()}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
           <a
-            href={link.href}
-            class:list={[
-              'block py-2 px-4 text-sm font-medium rounded-lg transition-colors',
-              currentPath === link.href
-                ? 'text-primary bg-primary/5'
-                : 'text-text-gray hover:text-primary hover:bg-gray-50'
-            ]}
+            href="/contact"
+            class="block mt-4 bg-primary text-white px-4 py-2 rounded-lg font-semibold text-center hover:bg-primary-dark transition"
           >
-            {link.label}
+            Contact Us
           </a>
-        ))}
-        <a
-          href="#contact"
-          class="block mt-4 bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium text-center hover:bg-primary-dark transition-colors"
-        >
-          Contact Us
-        </a>
+        </div>
       </div>
     </div>
   </nav>
 </header>
-
-<!-- Spacer for fixed header -->
-<div class="h-16"></div>
 
 <script>
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const menuIcon = document.getElementById('menu-icon');
   const closeIcon = document.getElementById('close-icon');
-  const header = document.getElementById('header');
+  const langBtn = document.getElementById('lang-btn');
+  const langMenu = document.getElementById('lang-menu');
 
-  // Mobile menu toggle
   mobileMenuBtn?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
     menuIcon?.classList.toggle('hidden');
     closeIcon?.classList.toggle('hidden');
   });
 
-  // Add shadow on scroll
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-      header?.classList.add('shadow-md');
-    } else {
-      header?.classList.remove('shadow-md');
+  langBtn?.addEventListener('click', () => {
+    langMenu?.classList.toggle('hidden');
+  });
+
+  // Close language menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const container = document.getElementById('lang-dropdown-container');
+    if (container && !container.contains(e.target as Node)) {
+      langMenu?.classList.add('hidden');
     }
   });
 </script>

@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTASection from '../components/CTASection.astro';
+import { Shield, Users, Award, Target, Building2, Landmark, ShoppingBag, Factory } from 'lucide-astro';
+
+const sectors = [
+  { name: "Banking and Finance", icon: "Landmark" },
+  { name: "Government and Administration", icon: "Building2" },
+  { name: "Retail and Hospitality", icon: "ShoppingBag" },
+  { name: "Industry and Logistics", icon: "Factory" },
+];
+
+const iconMap: Record<string, any> = {
+  Landmark,
+  Building2,
+  ShoppingBag,
+  Factory,
+};
+
+const values = [
+  {
+    title: "Quality",
+    description: "We deliver only the highest quality solutions using trusted brands and proven technologies.",
+    icon: Award
+  },
+  {
+    title: "Innovation",
+    description: "We stay at the forefront of technology to bring you cutting-edge solutions.",
+    icon: Target
+  },
+  {
+    title: "Customer Focus",
+    description: "Your needs drive everything we do. We tailor our solutions to meet your specific requirements.",
+    icon: Users
+  },
+  {
+    title: "Reliability",
+    description: "Count on us for long-term support and dependable service you can trust.",
+    icon: Shield
+  },
+];
+---
+
+<Layout
+  title="About Us - OptimuxSolutions"
+  description="Learn about OptimuxSolutions, a trusted provider of technology and security solutions in Equatorial Guinea."
+>
+  <Header />
+
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900">
+      <div class="absolute inset-0 bg-black/30"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4" style="color: white;">
+          About Us
+        </h1>
+        <p class="text-lg max-w-2xl mx-auto" style="color: rgba(255,255,255,0.8);">
+          Your trusted technology partner in Equatorial Guinea
+        </p>
+      </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Logo -->
+          <div class="relative">
+            <div class="rounded-2xl overflow-hidden shadow-2xl bg-gray-100 p-12 flex items-center justify-center">
+              <img
+                src="/logo.png"
+                alt="OptimuxSolutions"
+                class="w-full max-w-md object-contain"
+              />
+            </div>
+            <!-- Decorative element -->
+            <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/10 rounded-2xl -z-10"></div>
+          </div>
+
+          <!-- Content -->
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Who We Are
+            </h2>
+            <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+              <p>
+                <strong class="text-gray-900">OptimuxSolutions</strong> is a trusted provider of cutting-edge technology and security solutions based in Equatorial Guinea. We specialize in electronic security systems, IT and network maintenance, telecommunications, and professional equipment supply for both public and private sectors.
+              </p>
+              <p>
+                With a customer-focused approach and a team of qualified technicians, we deliver reliable, tailored solutions to meet the evolving needs of businesses, institutions, and individuals.
+              </p>
+              <p>
+                Whether it's video surveillance, access control, fire detection, IT infrastructure, or office automation, OptimuxSolutions ensures quality, innovation, and long-term support.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Statement -->
+    <section class="py-16 bg-primary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <blockquote class="text-2xl md:text-3xl font-bold text-white italic">
+          "Your security is our mission. Your performance is our priority."
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Our Values
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            The principles that guide everything we do
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {values.map((value) => (
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                <value.icon class="w-7 h-7 text-primary" />
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">{value.title}</h3>
+              <p class="text-gray-600">{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Sectors We Serve -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Sectors We Serve
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            We proudly serve a wide range of industries across Equatorial Guinea
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {sectors.map((sector) => {
+            const IconComponent = iconMap[sector.icon];
+            return (
+              <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 text-center">
+                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <IconComponent class="w-8 h-8 text-primary" />
+                </div>
+                <h3 class="font-semibold text-gray-900">{sector.name}</h3>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Satisfied Clients -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Our Satisfied Clients
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Trusted by leading organizations across Equatorial Guinea
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center">
+          <div class="flex items-center justify-center p-4 hover:scale-110 transition-all duration-300">
+            <img src="/images/clients/bgfi.webp" alt="BGFI" class="h-16 w-auto object-contain" />
+          </div>
+          <div class="flex items-center justify-center p-4 hover:scale-110 transition-all duration-300">
+            <img src="/images/clients/cndes.webp" alt="CNDES" class="h-16 w-auto object-contain" />
+          </div>
+          <div class="flex items-center justify-center p-4 hover:scale-110 transition-all duration-300">
+            <img src="/images/clients/deloite.png" alt="Deloitte" class="h-16 w-auto object-contain" />
+          </div>
+          <div class="flex items-center justify-center p-4 hover:scale-110 transition-all duration-300">
+            <img src="/images/clients/ey.png" alt="EY" class="h-16 w-auto object-contain" />
+          </div>
+          <div class="flex items-center justify-center p-4 hover:scale-110 transition-all duration-300">
+            <img src="/images/clients/inseso.webp" alt="INSESO" class="h-16 w-auto object-contain" />
+          </div>
+          <div class="flex items-center justify-center p-4 hover:scale-110 transition-all duration-300">
+            <img src="/images/clients/simple star.png" alt="Simple Star" class="h-16 w-auto object-contain" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <CTASection
+      title="Ready to Work Together?"
+      subtitle="Contact us today to discuss how we can help transform your business with our technology solutions."
+      buttonText="Get in Touch"
+    />
+  </main>
+
+  <Footer />
+</Layout>

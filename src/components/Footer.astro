@@ -1,45 +1,49 @@
 ---
-import { Mail, Phone, MapPin } from 'lucide-astro';
+import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram } from 'lucide-astro';
 
 const quickLinks = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
+  { href: '/about', label: 'About' },
   { href: '#contact', label: 'Contact' },
+];
+
+const serviceLinks = [
+  { href: '/services#cctv', label: 'Video Surveillance' },
+  { href: '/services#access', label: 'Access Control' },
+  { href: '/services#servers', label: 'Servers' },
+  { href: '/services#maintenance', label: 'IT Maintenance' },
 ];
 
 const contactInfo = {
   phone: '+240 222 513 410',
   email: 'optimux@optimuxsolutions.com',
-  address: 'Malabo II, Zona de Sampaka - Malabo, Guinea Equatorial',
+  address: 'Malabo II, Zona de Sampaka',
+  city: 'Malabo, Equatorial Guinea',
 };
 ---
 
-<footer class="bg-text-dark text-white" id="contact">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Brand -->
+<footer class="bg-gray-900 text-white" id="contact">
+  <!-- Main Footer -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+      <!-- About -->
       <div>
-        <a href="/" class="flex items-center gap-2 mb-4">
-          <img src="/logo.png" alt="OptimuxSolutions" class="h-10 w-auto brightness-0 invert" />
-        </a>
-        <p class="text-gray-400 text-sm italic mb-4">
-          "Optimize today, perform tomorrow"
-        </p>
-        <p class="text-gray-400 text-sm">
-          Professional IT solutions for businesses looking to optimize their technology infrastructure.
+        <img src="/logo.png" alt="OptimuxSolutions" class="h-12 mb-6 brightness-0 invert" />
+        <h3 class="text-xl font-bold mb-4">Integrated IT Solutions</h3>
+        <p class="text-gray-400 leading-relaxed text-sm">
+          OPTIMUXSOLUTIONS is a leading provider of innovative IT, telecommunications and security solutions. Specialized in IT maintenance, network management and security systems.
         </p>
       </div>
 
       <!-- Quick Links -->
       <div>
-        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-        <ul class="space-y-2">
+        <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+        <ul class="space-y-3">
           {quickLinks.map((link) => (
             <li>
-              <a
-                href={link.href}
-                class="text-gray-400 hover:text-white transition-colors text-sm"
-              >
+              <a href={link.href} class="text-gray-400 hover:text-white transition-colors text-sm">
                 {link.label}
               </a>
             </li>
@@ -47,34 +51,66 @@ const contactInfo = {
         </ul>
       </div>
 
-      <!-- Contact Info -->
+      <!-- Services -->
       <div>
-        <h3 class="text-lg font-semibold mb-4">Contact</h3>
+        <h4 class="text-lg font-semibold mb-6">Services</h4>
         <ul class="space-y-3">
+          {serviceLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-gray-400 hover:text-white transition-colors text-sm">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="text-lg font-semibold mb-6">Contact</h4>
+        <ul class="space-y-4">
           <li>
-            <a href={`tel:${contactInfo.phone}`} class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm">
-              <Phone class="h-4 w-4" />
+            <a href={`tel:${contactInfo.phone}`} class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm">
+              <Phone class="w-5 h-5 text-primary flex-shrink-0" />
               {contactInfo.phone}
             </a>
           </li>
           <li>
-            <a href={`mailto:${contactInfo.email}`} class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm">
-              <Mail class="h-4 w-4" />
+            <a href={`mailto:${contactInfo.email}`} class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm">
+              <Mail class="w-5 h-5 text-primary flex-shrink-0" />
               {contactInfo.email}
             </a>
           </li>
-          <li class="flex items-center gap-2 text-gray-400 text-sm">
-            <MapPin class="h-4 w-4 flex-shrink-0" />
-            {contactInfo.address}
+          <li>
+            <div class="flex items-start gap-3 text-gray-400 text-sm">
+              <MapPin class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+              <span>{contactInfo.address}<br/>{contactInfo.city}</span>
+            </div>
           </li>
         </ul>
-      </div>
-    </div>
 
-    <!-- Copyright -->
-    <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-      <p class="text-gray-400 text-sm">
-        &copy; {new Date().getFullYear()} OptimuxSolutions. All rights reserved.
+        <!-- Social -->
+        <div class="flex gap-4 mt-6">
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors" aria-label="Facebook">
+            <Facebook class="w-5 h-5" />
+          </a>
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors" aria-label="LinkedIn">
+            <Linkedin class="w-5 h-5" />
+          </a>
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors" aria-label="Instagram">
+            <Instagram class="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <p class="text-center text-gray-500 text-sm">
+        Copyright &copy; {new Date().getFullYear()} OptimuxSolutions. All rights reserved.
       </p>
     </div>
   </div>

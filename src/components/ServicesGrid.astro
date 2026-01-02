@@ -1,0 +1,71 @@
+---
+const services = [
+  {
+    title: "CCTV Video Surveillance",
+    description: "Prevent theft, monitor critical areas and secure your facilities with reliable video surveillance. Ideal for offices, businesses and industrial buildings.",
+    image: "/images/cctv.webp",
+    href: "/services#cctv"
+  },
+  {
+    title: "Fire & Alarm Systems",
+    description: "Fire protection and early detection systems. Installation and maintenance of certified alarm systems for maximum security.",
+    image: "/images/firealarm.webp",
+    href: "/services#alarm"
+  },
+  {
+    title: "Access Control",
+    description: "Biometric systems, RFID cards and electronic locks. Control who enters and when with complete security.",
+    image: "/images/accescontrolcard.webp",
+    href: "/services#access"
+  },
+  {
+    title: "Network Devices",
+    description: "Installation, configuration and administration of servers. Design of secure and scalable enterprise networks.",
+    image: "/images/networkdevices.webp",
+    href: "/services#servers"
+  }
+];
+---
+
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Our Services
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Comprehensive IT and security solutions tailored to your business needs.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map(service => (
+        <a href={service.href} class="group block">
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 h-full">
+            <!-- Image -->
+            <div class="relative h-56 overflow-hidden">
+              <img
+                src={service.image}
+                alt={service.title}
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition">
+                {service.title}
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

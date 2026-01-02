@@ -1,64 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import ContactCTA from '../components/ContactCTA.astro';
+import HeroSlider from '../components/HeroSlider.astro';
+import ServicesGrid from '../components/ServicesGrid.astro';
+import ServiceFeature from '../components/ServiceFeature.astro';
+import Partners from '../components/Partners.astro';
+import CTASection from '../components/CTASection.astro';
 import Footer from '../components/Footer.astro';
-import { getServiciosDestacados } from '../lib/strapi';
-
-const servicios = await getServiciosDestacados();
 ---
 
-<Layout title="OptimuxSolutions - Professional IT Solutions.">
+<Layout title="OptimuxSolutions - Integrated IT Solutions">
   <Header />
 
   <main class="flex-1">
-    <!-- Hero Section -->
-    <Hero
-      title="IT Solutions for your business"
-      subtitle="Optimize today, perform tomorrow"
-      description="We offer professional IT services for companies looking to optimize their technology infrastructure and improve performance."
-    />
-
-    <!-- Featured Services Section -->
-    <section class="py-16 bg-background-alt">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-text-dark mb-4">
-            Our Services
-          </h2>
-          <p class="text-text-gray max-w-2xl mx-auto">
-            Comprehensive technology solutions to meet all your business needs.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {servicios.map((servicio) => (
-            <ServiceCard
-              titulo={servicio.titulo}
-              descripcion={servicio.descripcion}
-              icono={servicio.icono}
-            />
-          ))}
-        </div>
-
-        <div class="text-center mt-8">
-          <a
-            href="/services"
-            class="inline-flex items-center text-primary font-medium hover:underline"
-          >
-            View all services
-            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <ContactCTA />
+    <HeroSlider />
+    <ServicesGrid />
+    <ServiceFeature />
+    <Partners />
+    <CTASection />
   </main>
 
   <Footer />

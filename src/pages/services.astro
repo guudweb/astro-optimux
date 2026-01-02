@@ -1,13 +1,117 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import ContactCTA from '../components/ContactCTA.astro';
 import Footer from '../components/Footer.astro';
-import { getServicios } from '../lib/strapi';
+import CTASection from '../components/CTASection.astro';
+import { Camera, Shield, DoorOpen, Server, Wrench, Wifi } from 'lucide-astro';
 
-const servicios = await getServicios();
+const services = [
+  {
+    id: "cctv",
+    title: "CCTV Video Surveillance",
+    description: "Prevent theft, monitor critical areas and secure your facilities with reliable video surveillance. Our CCTV solutions provide real-time monitoring and continuous recording for offices, businesses and industrial buildings.",
+    icon: "Camera",
+    image: "/images/cctv.webp",
+    features: [
+      "IP and analog cameras",
+      "DVR/NVR systems",
+      "Remote monitoring",
+      "Cloud storage",
+      "Night vision capability",
+      "Motion detection alerts"
+    ],
+    gradient: "from-blue-600 to-blue-800"
+  },
+  {
+    id: "alarm",
+    title: "Alarm & Fire Systems",
+    description: "Comprehensive protection with fire detection and early warning systems. We install and maintain certified alarm systems that keep your premises safe around the clock.",
+    icon: "Shield",
+    image: "/images/firealarm.webp",
+    features: [
+      "Fire detection systems",
+      "Intrusion alarms",
+      "24/7 monitoring",
+      "Emergency response integration",
+      "Smoke and heat detectors",
+      "Regular maintenance"
+    ],
+    gradient: "from-red-600 to-orange-600"
+  },
+  {
+    id: "access",
+    title: "Access Control",
+    description: "Control who enters your facilities and when with our advanced access control systems. From biometric readers to RFID cards, we provide complete security solutions.",
+    icon: "DoorOpen",
+    image: "/images/accescontrolcard.webp",
+    features: [
+      "Biometric readers",
+      "RFID card systems",
+      "Electronic locks",
+      "Access logging",
+      "Time attendance integration",
+      "Visitor management"
+    ],
+    gradient: "from-green-600 to-teal-600"
+  },
+  {
+    id: "servers",
+    title: "Servers & Networks",
+    description: "Enterprise-grade server installation, configuration and administration. We design secure and scalable networks that grow with your business.",
+    icon: "Server",
+    image: "/images/networkdevices.webp",
+    features: [
+      "Server installation",
+      "Network design",
+      "Virtualization",
+      "Backup solutions",
+      "Cloud integration",
+      "Security hardening"
+    ],
+    gradient: "from-purple-600 to-indigo-600"
+  },
+  {
+    id: "maintenance",
+    title: "IT Maintenance",
+    description: "Preventive and corrective maintenance services to keep your IT infrastructure running smoothly. Our team provides ongoing support to minimize downtime.",
+    icon: "Wrench",
+    image: "/images/Preventive IT Maintenance.webp",
+    features: [
+      "Preventive maintenance",
+      "Technical support",
+      "System updates",
+      "Incident resolution",
+      "Performance optimization",
+      "Hardware repairs"
+    ],
+    gradient: "from-amber-600 to-yellow-600"
+  },
+  {
+    id: "telecom",
+    title: "Telecommunications",
+    description: "Complete telecom solutions including structured cabling, fiber optics and network infrastructure. We build the foundation for high-speed connectivity.",
+    icon: "Wifi",
+    image: "/images/networkdevices.webp",
+    features: [
+      "Structured cabling",
+      "Fiber optic installation",
+      "VoIP systems",
+      "Network infrastructure",
+      "Wireless solutions",
+      "Bandwidth optimization"
+    ],
+    gradient: "from-cyan-600 to-blue-600"
+  }
+];
+
+const iconMap: Record<string, any> = {
+  Camera,
+  Shield,
+  DoorOpen,
+  Server,
+  Wrench,
+  Wifi,
+};
 ---
 
 <Layout
@@ -18,34 +122,77 @@ const servicios = await getServicios();
 
   <main class="flex-1">
     <!-- Hero Section -->
-    <Hero
-      title="Our Services"
-      subtitle="Comprehensive IT solutions for businesses"
-      compact
-      showCTA={false}
-    />
+    <section class="relative py-20 bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900">
+      <div class="absolute inset-0 bg-black/30"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4" style="color: white;">
+          Our Services
+        </h1>
+        <p class="text-lg max-w-2xl mx-auto" style="color: rgba(255,255,255,0.8);">
+          Comprehensive IT and security solutions tailored to your business needs
+        </p>
+      </div>
+    </section>
 
-    <!-- Services List Section -->
-    <section class="py-16">
+    <!-- Services List -->
+    <section class="py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {servicios.map((servicio) => (
-            <ServiceCard
-              titulo={servicio.titulo}
-              descripcion={servicio.descripcion}
-              icono={servicio.icono}
-              caracteristicas={servicio.caracteristicas}
-              detailed
-            />
-          ))}
+        <div class="space-y-16">
+          {services.map((service, index) => {
+            const IconComponent = iconMap[service.icon];
+            const isReversed = index % 2 !== 0;
+
+            return (
+              <div id={service.id} class="scroll-mt-24">
+                <div class={`flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center`}>
+                  <!-- Visual -->
+                  <div class="lg:w-1/2">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        class="w-full aspect-video object-cover"
+                      />
+                      <div class={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20`}></div>
+                    </div>
+                  </div>
+
+                  <!-- Content -->
+                  <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                      {service.title}
+                    </h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+                    <ul class="grid grid-cols-2 gap-3 mb-8">
+                      {service.features.map((feature) => (
+                        <li class="flex items-center gap-2 text-gray-600">
+                          <span class="w-2 h-2 bg-primary rounded-full flex-shrink-0"></span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href="#contact"
+                      class="inline-block bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-semibold transition"
+                    >
+                      Request Information
+                    </a>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <ContactCTA
+    <CTASection
       title="Need any of these services?"
-      buttonText="Request Information"
+      subtitle="Get in touch with our team to discuss your requirements and get a customized solution."
+      buttonText="Contact Us"
     />
   </main>
 
