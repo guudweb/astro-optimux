@@ -2,7 +2,7 @@
 
 const STRAPI_URL = import.meta.env.STRAPI_URL || 'http://localhost:1337';
 
-export interface Servicio {
+export interface Service {
   id: number;
   titulo: string;
   descripcion: string;
@@ -13,40 +13,40 @@ export interface Servicio {
 }
 
 // Hardcoded fallback data
-const serviciosFallback: Servicio[] = [
+const servicesFallback: Service[] = [
   {
     id: 1,
-    titulo: 'Servidores',
-    descripcion: 'Instalación, configuración y administración de servidores físicos y virtuales. Optimizamos tu infraestructura para máximo rendimiento y disponibilidad.',
+    titulo: 'Servers',
+    descripcion: 'Installation, configuration and administration of physical and virtual servers. We optimize your infrastructure for maximum performance and availability.',
     icono: 'Server',
-    caracteristicas: ['Instalación y montaje', 'Configuración de red', 'Virtualización', 'Backup y recuperación'],
+    caracteristicas: ['Installation and setup', 'Network configuration', 'Virtualization', 'Backup and recovery'],
     destacado: true,
     orden: 1,
   },
   {
     id: 2,
-    titulo: 'Videovigilancia',
-    descripcion: 'Sistemas de cámaras de seguridad CCTV para proteger tus instalaciones. Monitoreo en tiempo real y grabación continua.',
+    titulo: 'Video Surveillance',
+    descripcion: 'CCTV security camera systems to protect your facilities. Real-time monitoring and continuous recording.',
     icono: 'Camera',
-    caracteristicas: ['Cámaras IP y analógicas', 'DVR/NVR', 'Monitoreo remoto', 'Almacenamiento en la nube'],
+    caracteristicas: ['IP and analog cameras', 'DVR/NVR', 'Remote monitoring', 'Cloud storage'],
     destacado: true,
     orden: 2,
   },
   {
     id: 3,
-    titulo: 'Control de Acceso',
-    descripcion: 'Sistemas de control de acceso para puertas y áreas restringidas. Gestiona quién entra y cuándo con total seguridad.',
+    titulo: 'Access Control',
+    descripcion: 'Access control systems for doors and restricted areas. Manage who enters and when with complete security.',
     icono: 'DoorOpen',
-    caracteristicas: ['Lectores biométricos', 'Tarjetas RFID', 'Cerraduras electrónicas', 'Registro de accesos'],
+    caracteristicas: ['Biometric readers', 'RFID cards', 'Electronic locks', 'Access logging'],
     destacado: true,
     orden: 3,
   },
   {
     id: 4,
-    titulo: 'Mantenimiento IT',
-    descripcion: 'Servicio de mantenimiento preventivo y correctivo para toda tu infraestructura tecnológica. Mantén tus sistemas funcionando sin interrupciones.',
+    titulo: 'IT Maintenance',
+    descripcion: 'Preventive and corrective maintenance service for all your technology infrastructure. Keep your systems running without interruptions.',
     icono: 'Wrench',
-    caracteristicas: ['Soporte técnico', 'Mantenimiento preventivo', 'Actualización de sistemas', 'Resolución de incidencias'],
+    caracteristicas: ['Technical support', 'Preventive maintenance', 'System updates', 'Incident resolution'],
     destacado: true,
     orden: 4,
   },
@@ -64,7 +64,7 @@ async function fetchAPI(endpoint: string) {
   }
 }
 
-export async function getServicios(): Promise<Servicio[]> {
+export async function getServicios(): Promise<Service[]> {
   const data = await fetchAPI('servicios?populate=*&sort=orden:asc');
 
   if (data?.data) {
@@ -80,10 +80,10 @@ export async function getServicios(): Promise<Servicio[]> {
     }));
   }
 
-  return serviciosFallback;
+  return servicesFallback;
 }
 
-export async function getServiciosDestacados(): Promise<Servicio[]> {
+export async function getServiciosDestacados(): Promise<Service[]> {
   const servicios = await getServicios();
   return servicios.filter(s => s.destacado).slice(0, 4);
 }

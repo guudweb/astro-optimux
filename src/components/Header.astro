@@ -2,9 +2,9 @@
 import { Menu, X } from 'lucide-astro';
 
 const navLinks = [
-  { href: '/', label: 'Inicio' },
-  { href: '/servicios', label: 'Servicios' },
-  { href: '#contacto', label: 'Contacto' },
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -32,10 +32,10 @@ const currentPath = Astro.url.pathname;
           </a>
         ))}
         <a
-          href="#contacto"
+          href="#contact"
           class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors"
         >
-          Contáctanos
+          Contact Us
         </a>
       </div>
 
@@ -44,7 +44,7 @@ const currentPath = Astro.url.pathname;
         type="button"
         class="md:hidden p-2 text-text-gray hover:text-primary transition-colors"
         id="mobile-menu-btn"
-        aria-label="Abrir menú"
+        aria-label="Open menu"
       >
         <Menu class="h-6 w-6" id="menu-icon" />
         <X class="h-6 w-6 hidden" id="close-icon" />
@@ -68,10 +68,10 @@ const currentPath = Astro.url.pathname;
           </a>
         ))}
         <a
-          href="#contacto"
+          href="#contact"
           class="block mt-4 bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium text-center hover:bg-primary-dark transition-colors"
         >
-          Contáctanos
+          Contact Us
         </a>
       </div>
     </div>
