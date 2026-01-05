@@ -1,17 +1,17 @@
 ---
-import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram } from 'lucide-astro';
+import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, ArrowRight } from 'lucide-astro';
 
 const quickLinks = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 const serviceLinks = [
   { href: '/services#cctv', label: 'Video Surveillance' },
   { href: '/services#access', label: 'Access Control' },
-  { href: '/services#servers', label: 'Servers' },
+  { href: '/services#servers', label: 'Network Devices' },
   { href: '/services#maintenance', label: 'IT Maintenance' },
 ];
 
@@ -23,28 +23,51 @@ const contactInfo = {
 };
 ---
 
-<footer class="bg-gray-900 text-white" id="contact">
+<footer class="relative bg-slate-50 bg-pattern-curves overflow-hidden" id="contact">
+  <!-- Decorative gradients -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl"></div>
+
   <!-- Main Footer -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
 
       <!-- About -->
-      <div>
-        <img src="/logo.png" alt="OptimuxSolutions" class="h-12 mb-6 brightness-0 invert" />
-        <h3 class="text-xl font-bold mb-4">Integrated IT Solutions</h3>
-        <p class="text-gray-400 leading-relaxed text-sm">
+      <div class="lg:col-span-1">
+        <a href="/" class="inline-block mb-6">
+          <img
+            src="/images/logo.jpeg"
+            alt="OptimuxSolutions"
+            class="h-12 w-auto"
+          />
+        </a>
+        <p class="text-slate-600 leading-relaxed text-sm mb-6">
           OPTIMUXSOLUTIONS is a leading provider of innovative IT, telecommunications and security solutions. Specialized in IT maintenance, network management and security systems.
         </p>
+
+        <!-- Social -->
+        <div class="flex gap-3">
+          <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary rounded-xl flex items-center justify-center transition-all group" aria-label="Facebook">
+            <Facebook class="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+          </a>
+          <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary rounded-xl flex items-center justify-center transition-all group" aria-label="LinkedIn">
+            <Linkedin class="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+          </a>
+          <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary rounded-xl flex items-center justify-center transition-all group" aria-label="Instagram">
+            <Instagram class="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+          </a>
+        </div>
       </div>
 
       <!-- Quick Links -->
       <div>
-        <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+        <h4 class="text-lg font-bold mb-6 text-slate-900">Quick Links</h4>
         <ul class="space-y-3">
           {quickLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-gray-400 hover:text-white transition-colors text-sm">
-                {link.label}
+              <a href={link.href} class="group flex items-center gap-2 text-slate-600 hover:text-primary transition-colors text-sm">
+                <ArrowRight class="w-4 h-4 text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                <span>{link.label}</span>
               </a>
             </li>
           ))}
@@ -53,12 +76,13 @@ const contactInfo = {
 
       <!-- Services -->
       <div>
-        <h4 class="text-lg font-semibold mb-6">Services</h4>
+        <h4 class="text-lg font-bold mb-6 text-slate-900">Services</h4>
         <ul class="space-y-3">
           {serviceLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-gray-400 hover:text-white transition-colors text-sm">
-                {link.label}
+              <a href={link.href} class="group flex items-center gap-2 text-slate-600 hover:text-primary transition-colors text-sm">
+                <ArrowRight class="w-4 h-4 text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                <span>{link.label}</span>
               </a>
             </li>
           ))}
@@ -67,51 +91,50 @@ const contactInfo = {
 
       <!-- Contact -->
       <div>
-        <h4 class="text-lg font-semibold mb-6">Contact</h4>
+        <h4 class="text-lg font-bold mb-6 text-slate-900">Contact Us</h4>
         <ul class="space-y-4">
           <li>
-            <a href={`tel:${contactInfo.phone}`} class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm">
-              <Phone class="w-5 h-5 text-primary flex-shrink-0" />
-              {contactInfo.phone}
+            <a href={`tel:${contactInfo.phone}`} class="flex items-center gap-4 text-slate-600 hover:text-primary transition-colors group">
+              <div class="w-10 h-10 bg-primary/10 group-hover:bg-primary rounded-xl flex items-center justify-center transition-colors">
+                <Phone class="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+              </div>
+              <span class="text-sm">{contactInfo.phone}</span>
             </a>
           </li>
           <li>
-            <a href={`mailto:${contactInfo.email}`} class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm">
-              <Mail class="w-5 h-5 text-primary flex-shrink-0" />
-              {contactInfo.email}
+            <a href={`mailto:${contactInfo.email}`} class="flex items-center gap-4 text-slate-600 hover:text-primary transition-colors group">
+              <div class="w-10 h-10 bg-primary/10 group-hover:bg-primary rounded-xl flex items-center justify-center transition-colors">
+                <Mail class="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+              </div>
+              <span class="text-sm">{contactInfo.email}</span>
             </a>
           </li>
           <li>
-            <div class="flex items-start gap-3 text-gray-400 text-sm">
-              <MapPin class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <span>{contactInfo.address}<br/>{contactInfo.city}</span>
+            <div class="flex items-start gap-4 text-slate-600">
+              <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <MapPin class="w-5 h-5 text-primary" />
+              </div>
+              <span class="text-sm">{contactInfo.address}<br/>{contactInfo.city}</span>
             </div>
           </li>
         </ul>
-
-        <!-- Social -->
-        <div class="flex gap-4 mt-6">
-          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors" aria-label="Facebook">
-            <Facebook class="w-5 h-5" />
-          </a>
-          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors" aria-label="LinkedIn">
-            <Linkedin class="w-5 h-5" />
-          </a>
-          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors" aria-label="Instagram">
-            <Instagram class="w-5 h-5" />
-          </a>
-        </div>
       </div>
 
     </div>
   </div>
 
   <!-- Copyright -->
-  <div class="border-t border-gray-800">
+  <div class="relative border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      <p class="text-center text-gray-500 text-sm">
-        Copyright &copy; {new Date().getFullYear()} OptimuxSolutions. All rights reserved.
-      </p>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-slate-500 text-sm">
+          Copyright &copy; {new Date().getFullYear()} OptimuxSolutions. All rights reserved.
+        </p>
+        <div class="flex items-center gap-6 text-sm text-slate-500">
+          <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>

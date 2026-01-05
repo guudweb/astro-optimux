@@ -1,0 +1,151 @@
+---
+import { ArrowRight, Building2, Factory, Store, Building } from 'lucide-astro';
+
+interface Props {
+  category?: string;
+}
+
+const { category = 'all' } = Astro.props;
+
+const projects = [
+  {
+    title: "Corporate Office Security System",
+    client: "Financial Services Company",
+    category: "cctv",
+    description: "Complete CCTV installation with 48 cameras covering all entry points and common areas.",
+    image: "/images/projects/office-security.svg",
+    icon: "Building2"
+  },
+  {
+    title: "Industrial Plant Monitoring",
+    client: "Manufacturing Company",
+    category: "cctv",
+    description: "High-definition surveillance system for production floors and warehouse areas.",
+    image: "/images/projects/industrial.svg",
+    icon: "Factory"
+  },
+  {
+    title: "Retail Chain Access Control",
+    client: "National Retail Brand",
+    category: "access",
+    description: "Biometric access control deployment across 12 store locations.",
+    image: "/images/projects/retail.svg",
+    icon: "Store"
+  },
+  {
+    title: "Hotel Network Infrastructure",
+    client: "Hospitality Group",
+    category: "servers",
+    description: "Complete network overhaul with redundant servers and guest WiFi.",
+    image: "/images/projects/hotel.svg",
+    icon: "Building"
+  },
+  {
+    title: "Fire Alarm System Installation",
+    client: "Commercial Complex",
+    category: "alarm",
+    description: "Comprehensive fire detection and alarm system for a multi-story building.",
+    image: "/images/projects/fire-alarm.svg",
+    icon: "Building2"
+  },
+  {
+    title: "Telecommunications Upgrade",
+    client: "Government Agency",
+    category: "telecom",
+    description: "Fiber optic installation and VoIP system deployment.",
+    image: "/images/projects/telecom.svg",
+    icon: "Building2"
+  }
+];
+
+const filteredProjects = category === 'all'
+  ? projects.slice(0, 4)
+  : projects.filter(p => p.category === category).slice(0, 4);
+
+const iconMap: Record<string, any> = {
+  Building2,
+  Factory,
+  Store,
+  Building,
+};
+---
+
+<section class="section-padding bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
+        <span class="w-2 h-2 rounded-full bg-primary"></span>
+        <span class="text-sm font-semibold text-primary">Our Work</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+        Recent Projects
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        See how we've helped businesses improve their security and IT infrastructure.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {filteredProjects.map((project) => {
+        const IconComponent = iconMap[project.icon];
+        return (
+          <div class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300">
+            <!-- Project Image Placeholder -->
+            <div class="relative h-48 bg-gradient-to-br from-primary/10 to-accent/10 overflow-hidden">
+              <!-- SVG Placeholder Pattern -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg class="w-full h-full" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <pattern id={`grid-${project.title.replace(/\s/g, '')}`} width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1c6cb1" stroke-width="0.5" opacity="0.15"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill={`url(#grid-${project.title.replace(/\s/g, '')})`}/>
+                  <!-- Abstract shapes representing the project -->
+                  <circle cx="320" cy="100" r="60" fill="#1c6cb1" opacity="0.1"/>
+                  <circle cx="300" cy="80" r="40" fill="#5a9fd4" opacity="0.15"/>
+                  <rect x="40" y="60" width="120" height="80" rx="8" fill="#1c6cb1" opacity="0.08"/>
+                  <rect x="50" y="70" width="100" height="60" rx="4" fill="#5a9fd4" opacity="0.1"/>
+                </svg>
+              </div>
+
+              <!-- Icon overlay -->
+              <div class="absolute top-4 left-4 w-12 h-12 bg-white rounded-xl shadow-lg flex items-center justify-center">
+                <IconComponent class="w-6 h-6 text-primary" />
+              </div>
+
+              <!-- Category badge -->
+              <div class="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full">
+                <span class="text-xs font-semibold text-primary capitalize">{project.category}</span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6">
+              <p class="text-sm font-medium text-primary mb-2">{project.client}</p>
+              <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors">
+                {project.title}
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                {project.description}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- View All Link -->
+    <div class="text-center mt-12">
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+      >
+        Discuss Your Project
+        <ArrowRight class="w-5 h-5" />
+      </a>
+    </div>
+  </div>
+</section>

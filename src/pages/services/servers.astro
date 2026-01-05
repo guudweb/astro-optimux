@@ -1,0 +1,328 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import RecentProjects from '../../components/RecentProjects.astro';
+import { Server, Check, ArrowRight, Database, Network, Cloud, Shield, HardDrive, Cpu } from 'lucide-astro';
+
+const features = [
+  {
+    icon: Database,
+    title: "Server Installation",
+    description: "Enterprise-grade server deployment and configuration for any scale."
+  },
+  {
+    icon: Network,
+    title: "Network Design",
+    description: "Custom network architecture optimized for performance and security."
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Integration",
+    description: "Seamless hybrid cloud solutions connecting on-premise and cloud."
+  },
+  {
+    icon: Shield,
+    title: "Security Hardening",
+    description: "Comprehensive security measures to protect your infrastructure."
+  },
+  {
+    icon: HardDrive,
+    title: "Backup Solutions",
+    description: "Automated backup systems ensuring data protection and recovery."
+  },
+  {
+    icon: Cpu,
+    title: "Virtualization",
+    description: "VM infrastructure for efficient resource utilization."
+  }
+];
+
+const specifications = [
+  "Rack server installation",
+  "Storage area networks (SAN)",
+  "Network attached storage (NAS)",
+  "Firewall configuration",
+  "VPN setup",
+  "Load balancing",
+  "Redundancy systems",
+  "Disaster recovery planning"
+];
+
+const applications = [
+  { title: "Enterprise Data Centers", description: "Full-scale server room design and deployment" },
+  { title: "Small Business Networks", description: "Cost-effective solutions for growing companies" },
+  { title: "Remote Office Connectivity", description: "Secure connections between multiple locations" },
+  { title: "Cloud Migration", description: "Smooth transition from on-premise to cloud infrastructure" }
+];
+---
+
+<Layout
+  title="Servers & Networks - OptimuxSolutions"
+  description="Professional server installation, network design and cloud integration services. Enterprise-grade infrastructure solutions."
+>
+  <Header />
+
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <section class="relative py-20 md:py-28 overflow-hidden">
+      <div class="absolute inset-0 bg-[#1c6cb1]">
+        <div class="absolute inset-0">
+          <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="hero-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.1"/>
+              </pattern>
+              <pattern id="hero-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1" fill="#ffffff" opacity="0.15"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hero-grid)"/>
+            <rect width="100%" height="100%" fill="url(#hero-dots)"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="absolute top-0 right-0 w-96 h-96 bg-[#5a9fd4]/30 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-0 left-0 w-80 h-80 bg-[#155a94]/50 rounded-full blur-[100px]"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <a href="/services" class="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
+              <ArrowRight class="w-4 h-4 rotate-180" />
+              <span class="text-sm font-medium">Back to Services</span>
+            </a>
+
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                <Server class="w-8 h-8 text-white" />
+              </div>
+              <div class="h-px bg-white/20 flex-1"></div>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="color: white;">
+              Servers &<br/>Networks
+            </h1>
+            <p class="text-lg md:text-xl leading-relaxed mb-8" style="color: rgba(255,255,255,0.85);">
+              Build a robust IT foundation with enterprise-grade servers, secure network infrastructure, and seamless cloud integration for your business.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/contact"
+                class="inline-flex items-center justify-center gap-2 bg-white hover:bg-white/90 text-[#1c6cb1] px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg"
+              >
+                Get a Quote
+                <ArrowRight class="w-5 h-5" />
+              </a>
+              <a
+                href="#features"
+                class="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 px-8 py-4 rounded-xl font-bold text-lg transition-all"
+                style="color: white;"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20">
+              <svg class="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="server-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.1"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#server-grid)"/>
+
+                <!-- Server Rack -->
+                <g transform="translate(130, 40)">
+                  <!-- Rack frame -->
+                  <rect x="20" y="10" width="100" height="160" rx="4" fill="#ffffff" opacity="0.1" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+
+                  <!-- Server units -->
+                  <rect x="30" y="25" width="80" height="25" rx="2" fill="#ffffff" opacity="0.2"/>
+                  <rect x="30" y="55" width="80" height="25" rx="2" fill="#ffffff" opacity="0.2"/>
+                  <rect x="30" y="85" width="80" height="25" rx="2" fill="#ffffff" opacity="0.2"/>
+                  <rect x="30" y="115" width="80" height="25" rx="2" fill="#ffffff" opacity="0.15"/>
+
+                  <!-- LED indicators -->
+                  <circle cx="40" cy="37" r="3" fill="#22c55e" opacity="0.7"/>
+                  <circle cx="50" cy="37" r="3" fill="#22c55e" opacity="0.7"/>
+                  <circle cx="40" cy="67" r="3" fill="#22c55e" opacity="0.7"/>
+                  <circle cx="50" cy="67" r="3" fill="#22c55e" opacity="0.7"/>
+                  <circle cx="40" cy="97" r="3" fill="#22c55e" opacity="0.7"/>
+                  <circle cx="50" cy="97" r="3" fill="#eab308" opacity="0.7"/>
+                  <circle cx="40" cy="127" r="3" fill="#64748b" opacity="0.4"/>
+                  <circle cx="50" cy="127" r="3" fill="#64748b" opacity="0.4"/>
+                </g>
+
+                <!-- Network lines -->
+                <path d="M50 150 Q 100 140, 130 90" fill="none" stroke="#5a9fd4" stroke-width="1" opacity="0.3"/>
+                <path d="M350 150 Q 300 140, 270 90" fill="none" stroke="#5a9fd4" stroke-width="1" opacity="0.3"/>
+
+                <circle cx="80" cy="250" r="30" fill="#5a9fd4" opacity="0.2"/>
+                <circle cx="320" cy="250" r="40" fill="#ffffff" opacity="0.1"/>
+              </svg>
+
+              <div class="absolute bottom-6 left-6 right-6 flex gap-4">
+                <div class="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg flex-1">
+                  <p class="text-2xl font-bold text-[#1c6cb1]">99.9%</p>
+                  <p class="text-xs text-slate-600">Uptime SLA</p>
+                </div>
+                <div class="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg flex-1">
+                  <p class="text-2xl font-bold text-[#1c6cb1]">10G</p>
+                  <p class="text-xs text-slate-600">Network</p>
+                </div>
+                <div class="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg flex-1">
+                  <p class="text-2xl font-bold text-[#1c6cb1]">24/7</p>
+                  <p class="text-xs text-slate-600">Support</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features" class="section-padding bg-slate-50 bg-pattern-curves">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
+            <span class="w-2 h-2 rounded-full bg-primary"></span>
+            <span class="text-sm font-semibold text-primary">Features</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+            Enterprise Infrastructure Solutions
+          </h2>
+          <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+            Our server and network solutions are designed for performance, reliability, and scalability.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 group">
+              <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all">
+                <feature.icon class="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+              <p class="text-slate-600 leading-relaxed">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Specifications & Applications -->
+    <section class="section-padding bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              <span class="text-sm font-semibold text-primary">Services</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+              What We Provide
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {specifications.map((spec) => (
+                <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-xl">
+                  <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Check class="w-5 h-5 text-primary" />
+                  </div>
+                  <span class="text-slate-700 font-medium">{spec}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              <span class="text-sm font-semibold text-primary">Use Cases</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+              Solutions For
+            </h2>
+
+            <div class="space-y-4">
+              {applications.map((app) => (
+                <div class="p-6 bg-slate-50 rounded-2xl hover:bg-primary/5 transition-colors">
+                  <h3 class="text-lg font-bold text-slate-900 mb-2">{app.title}</h3>
+                  <p class="text-slate-600">{app.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section-padding bg-slate-50 bg-pattern-dots">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
+            <span class="w-2 h-2 rounded-full bg-primary"></span>
+            <span class="text-sm font-semibold text-primary">Our Process</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+            How We Work
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {[
+            { step: "01", title: "Discovery", desc: "Assess current infrastructure and requirements" },
+            { step: "02", title: "Architecture", desc: "Design scalable network and server topology" },
+            { step: "03", title: "Implementation", desc: "Deploy and configure all systems" },
+            { step: "04", title: "Optimize", desc: "Performance tuning and ongoing management" }
+          ].map((item, index) => (
+            <div class="relative">
+              <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 text-center relative z-10">
+                <div class="text-5xl font-black text-primary/10 mb-4">{item.step}</div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p class="text-slate-600 text-sm">{item.desc}</p>
+              </div>
+              {index < 3 && (
+                <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-primary/20 z-0"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Projects -->
+    <RecentProjects category="servers" />
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-[#1c6cb1] relative overflow-hidden">
+      <div class="absolute inset-0 bg-pattern-shields opacity-10"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-[#5a9fd4]/30 rounded-full blur-[120px]"></div>
+
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6" style="color: white;">
+          Build Your IT Infrastructure
+        </h2>
+        <p class="text-lg mb-8 max-w-2xl mx-auto" style="color: rgba(255,255,255,0.85);">
+          Contact our infrastructure experts to design and deploy a robust server and network solution for your business.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 bg-white hover:bg-white/90 text-[#1c6cb1] px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg group"
+        >
+          Contact Us Today
+          <ArrowRight class="w-5 h-5 transition-transform group-hover:translate-x-1" />
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,71 +1,112 @@
 ---
+import { ArrowRight, Shield, Flame, KeyRound, Network } from 'lucide-astro';
+
 const services = [
   {
     title: "CCTV Video Surveillance",
     description: "Prevent theft, monitor critical areas and secure your facilities with reliable video surveillance. Ideal for offices, businesses and industrial buildings.",
     image: "/images/cctv.webp",
-    href: "/services#cctv"
+    href: "/services#cctv",
+    icon: Shield
   },
   {
     title: "Fire & Alarm Systems",
     description: "Fire protection and early detection systems. Installation and maintenance of certified alarm systems for maximum security.",
     image: "/images/firealarm.webp",
-    href: "/services#alarm"
+    href: "/services#alarm",
+    icon: Flame
   },
   {
     title: "Access Control",
     description: "Biometric systems, RFID cards and electronic locks. Control who enters and when with complete security.",
     image: "/images/accescontrolcard.webp",
-    href: "/services#access"
+    href: "/services#access",
+    icon: KeyRound
   },
   {
     title: "Network Devices",
     description: "Installation, configuration and administration of servers. Design of secure and scalable enterprise networks.",
     image: "/images/networkdevices.webp",
-    href: "/services#servers"
+    href: "/services#servers",
+    icon: Network
   }
 ];
 ---
 
-<section class="py-20 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="section-padding bg-slate-50 bg-pattern-dots relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary/5 to-transparent rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-cyan-500/5 to-transparent rounded-full blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
     <!-- Section Header -->
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
+        <span class="w-2 h-2 bg-primary rounded-full"></span>
+        <span class="text-sm font-semibold text-primary">What We Offer</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
         Our Services
       </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">
+      <p class="text-slate-600 max-w-2xl mx-auto text-lg">
         Comprehensive IT and security solutions tailored to your business needs.
       </p>
     </div>
 
     <!-- Services Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {services.map(service => (
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map((service, index) => (
         <a href={service.href} class="group block">
-          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 h-full">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 h-full border border-slate-100">
             <!-- Image -->
-            <div class="relative h-56 overflow-hidden">
+            <div class="relative h-48 overflow-hidden">
               <img
                 src={service.image}
                 alt={service.title}
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+
+              <!-- Icon Badge -->
+              <div class="absolute top-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                <service.icon class="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+              </div>
+
+              <!-- Number -->
+              <div class="absolute bottom-4 left-4">
+                <span class="text-5xl font-bold" style="color: rgba(255,255,255,0.15);">0{index + 1}</span>
+              </div>
             </div>
 
             <!-- Content -->
             <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition">
+              <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
                 {service.description}
               </p>
+
+              <!-- Learn More Link -->
+              <div class="flex items-center gap-2 text-primary font-semibold text-sm">
+                <span>Learn More</span>
+                <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </div>
             </div>
           </div>
         </a>
       ))}
+    </div>
+
+    <!-- View All Services Button -->
+    <div class="text-center mt-12">
+      <a
+        href="/services"
+        class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 group"
+      >
+        View All Services
+        <ArrowRight class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+      </a>
     </div>
   </div>
 </section>

@@ -1,0 +1,316 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import RecentProjects from '../../components/RecentProjects.astro';
+import { Shield, Check, ArrowRight, Flame, Bell, Phone, Clock, Zap, Radio } from 'lucide-astro';
+
+const features = [
+  {
+    icon: Flame,
+    title: "Fire Detection",
+    description: "Advanced smoke and heat detectors with early warning capabilities."
+  },
+  {
+    icon: Bell,
+    title: "Intrusion Alarms",
+    description: "Motion sensors and perimeter protection to detect unauthorized entry."
+  },
+  {
+    icon: Phone,
+    title: "24/7 Monitoring",
+    description: "Professional monitoring center ready to respond to any emergency."
+  },
+  {
+    icon: Clock,
+    title: "Instant Response",
+    description: "Immediate alerts to emergency services and designated contacts."
+  },
+  {
+    icon: Zap,
+    title: "Smart Integration",
+    description: "Seamless integration with building management and CCTV systems."
+  },
+  {
+    icon: Radio,
+    title: "Wireless Options",
+    description: "Flexible wireless sensors for easy installation and expansion."
+  }
+];
+
+const specifications = [
+  "Smoke and heat detectors",
+  "Carbon monoxide sensors",
+  "Motion detection sensors",
+  "Door/window contacts",
+  "Glass break detectors",
+  "Panic buttons",
+  "Sirens and strobes",
+  "Central monitoring panels"
+];
+
+const applications = [
+  { title: "Commercial Buildings", description: "Comprehensive fire and intrusion protection" },
+  { title: "Industrial Facilities", description: "Specialized sensors for hazardous environments" },
+  { title: "Residential Complexes", description: "Multi-unit alarm systems with central monitoring" },
+  { title: "Retail Spaces", description: "Integrated theft prevention and fire safety" }
+];
+---
+
+<Layout
+  title="Alarm & Fire Systems - OptimuxSolutions"
+  description="Professional alarm and fire detection systems. 24/7 monitoring, smoke detectors, intrusion alarms for complete protection."
+>
+  <Header />
+
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <section class="relative py-20 md:py-28 overflow-hidden">
+      <div class="absolute inset-0 bg-[#1c6cb1]">
+        <div class="absolute inset-0">
+          <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="hero-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.1"/>
+              </pattern>
+              <pattern id="hero-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1" fill="#ffffff" opacity="0.15"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hero-grid)"/>
+            <rect width="100%" height="100%" fill="url(#hero-dots)"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="absolute top-0 right-0 w-96 h-96 bg-[#5a9fd4]/30 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-0 left-0 w-80 h-80 bg-[#155a94]/50 rounded-full blur-[100px]"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <a href="/services" class="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
+              <ArrowRight class="w-4 h-4 rotate-180" />
+              <span class="text-sm font-medium">Back to Services</span>
+            </a>
+
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                <Shield class="w-8 h-8 text-white" />
+              </div>
+              <div class="h-px bg-white/20 flex-1"></div>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="color: white;">
+              Alarm & Fire<br/>Systems
+            </h1>
+            <p class="text-lg md:text-xl leading-relaxed mb-8" style="color: rgba(255,255,255,0.85);">
+              Protect your people and property with comprehensive alarm and fire detection systems. 24/7 professional monitoring and rapid emergency response.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/contact"
+                class="inline-flex items-center justify-center gap-2 bg-white hover:bg-white/90 text-[#1c6cb1] px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg"
+              >
+                Get a Quote
+                <ArrowRight class="w-5 h-5" />
+              </a>
+              <a
+                href="#features"
+                class="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 px-8 py-4 rounded-xl font-bold text-lg transition-all"
+                style="color: white;"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20">
+              <svg class="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="alarm-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.1"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#alarm-grid)"/>
+
+                <!-- Shield Icon -->
+                <g transform="translate(140, 70)">
+                  <path d="M60 10 L110 30 L110 80 Q110 130 60 150 Q10 130 10 80 L10 30 Z"
+                        fill="#ffffff" opacity="0.2" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+                  <path d="M60 30 L90 42 L90 72 Q90 105 60 120 Q30 105 30 72 L30 42 Z"
+                        fill="#ffffff" opacity="0.15"/>
+                  <!-- Checkmark inside shield -->
+                  <path d="M45 75 L55 85 L80 55" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+                </g>
+
+                <circle cx="80" cy="80" r="30" fill="#ef4444" opacity="0.2"/>
+                <circle cx="320" cy="220" r="50" fill="#ffffff" opacity="0.1"/>
+
+                <!-- Alert indicator -->
+                <circle cx="350" cy="40" r="6" fill="#22c55e" opacity="0.8"/>
+                <text x="310" y="45" fill="#ffffff" opacity="0.6" font-size="11" font-family="sans-serif">ARMED</text>
+              </svg>
+
+              <div class="absolute bottom-6 left-6 right-6 flex gap-4">
+                <div class="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg flex-1">
+                  <p class="text-2xl font-bold text-[#1c6cb1]">24/7</p>
+                  <p class="text-xs text-slate-600">Monitoring</p>
+                </div>
+                <div class="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg flex-1">
+                  <p class="text-2xl font-bold text-[#1c6cb1]">&lt;30s</p>
+                  <p class="text-xs text-slate-600">Response</p>
+                </div>
+                <div class="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg flex-1">
+                  <p class="text-2xl font-bold text-[#1c6cb1]">100%</p>
+                  <p class="text-xs text-slate-600">Certified</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features" class="section-padding bg-slate-50 bg-pattern-curves">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
+            <span class="w-2 h-2 rounded-full bg-primary"></span>
+            <span class="text-sm font-semibold text-primary">Features</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+            Complete Protection Systems
+          </h2>
+          <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+            Our alarm and fire systems provide comprehensive coverage for all types of emergencies.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 group">
+              <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all">
+                <feature.icon class="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+              <p class="text-slate-600 leading-relaxed">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Specifications & Applications -->
+    <section class="section-padding bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              <span class="text-sm font-semibold text-primary">Equipment</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+              System Components
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {specifications.map((spec) => (
+                <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-xl">
+                  <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Check class="w-5 h-5 text-primary" />
+                  </div>
+                  <span class="text-slate-700 font-medium">{spec}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              <span class="text-sm font-semibold text-primary">Applications</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+              Where We Install
+            </h2>
+
+            <div class="space-y-4">
+              {applications.map((app) => (
+                <div class="p-6 bg-slate-50 rounded-2xl hover:bg-primary/5 transition-colors">
+                  <h3 class="text-lg font-bold text-slate-900 mb-2">{app.title}</h3>
+                  <p class="text-slate-600">{app.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section-padding bg-slate-50 bg-pattern-dots">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
+            <span class="w-2 h-2 rounded-full bg-primary"></span>
+            <span class="text-sm font-semibold text-primary">Our Process</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+            How We Work
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {[
+            { step: "01", title: "Assessment", desc: "Evaluate risks and protection requirements" },
+            { step: "02", title: "Design", desc: "Custom system layout for complete coverage" },
+            { step: "03", title: "Installation", desc: "Professional setup by certified technicians" },
+            { step: "04", title: "Monitoring", desc: "24/7 professional monitoring service" }
+          ].map((item, index) => (
+            <div class="relative">
+              <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 text-center relative z-10">
+                <div class="text-5xl font-black text-primary/10 mb-4">{item.step}</div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p class="text-slate-600 text-sm">{item.desc}</p>
+              </div>
+              {index < 3 && (
+                <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-primary/20 z-0"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Projects -->
+    <RecentProjects category="alarm" />
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-[#1c6cb1] relative overflow-hidden">
+      <div class="absolute inset-0 bg-pattern-shields opacity-10"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-[#5a9fd4]/30 rounded-full blur-[120px]"></div>
+
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6" style="color: white;">
+          Protect What Matters Most
+        </h2>
+        <p class="text-lg mb-8 max-w-2xl mx-auto" style="color: rgba(255,255,255,0.85);">
+          Contact us today for a free security assessment and customized alarm system quote.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 bg-white hover:bg-white/90 text-[#1c6cb1] px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg group"
+        >
+          Contact Us Today
+          <ArrowRight class="w-5 h-5 transition-transform group-hover:translate-x-1" />
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

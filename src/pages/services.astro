@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
-import { Camera, Shield, DoorOpen, Server, Wrench, Wifi } from 'lucide-astro';
+import { Camera, Shield, DoorOpen, Server, Wrench, Wifi, Banknote, Printer, Check, ArrowRight } from 'lucide-astro';
 
 const services = [
   {
@@ -12,6 +12,7 @@ const services = [
     description: "Prevent theft, monitor critical areas and secure your facilities with reliable video surveillance. Our CCTV solutions provide real-time monitoring and continuous recording for offices, businesses and industrial buildings.",
     icon: "Camera",
     image: "/images/cctv.webp",
+    link: "/services/cctv",
     features: [
       "IP and analog cameras",
       "DVR/NVR systems",
@@ -19,8 +20,7 @@ const services = [
       "Cloud storage",
       "Night vision capability",
       "Motion detection alerts"
-    ],
-    gradient: "from-blue-600 to-blue-800"
+    ]
   },
   {
     id: "alarm",
@@ -28,6 +28,7 @@ const services = [
     description: "Comprehensive protection with fire detection and early warning systems. We install and maintain certified alarm systems that keep your premises safe around the clock.",
     icon: "Shield",
     image: "/images/firealarm.webp",
+    link: "/services/alarm",
     features: [
       "Fire detection systems",
       "Intrusion alarms",
@@ -35,8 +36,7 @@ const services = [
       "Emergency response integration",
       "Smoke and heat detectors",
       "Regular maintenance"
-    ],
-    gradient: "from-red-600 to-orange-600"
+    ]
   },
   {
     id: "access",
@@ -44,6 +44,7 @@ const services = [
     description: "Control who enters your facilities and when with our advanced access control systems. From biometric readers to RFID cards, we provide complete security solutions.",
     icon: "DoorOpen",
     image: "/images/accescontrolcard.webp",
+    link: "/services/access",
     features: [
       "Biometric readers",
       "RFID card systems",
@@ -51,8 +52,7 @@ const services = [
       "Access logging",
       "Time attendance integration",
       "Visitor management"
-    ],
-    gradient: "from-green-600 to-teal-600"
+    ]
   },
   {
     id: "servers",
@@ -60,6 +60,7 @@ const services = [
     description: "Enterprise-grade server installation, configuration and administration. We design secure and scalable networks that grow with your business.",
     icon: "Server",
     image: "/images/networkdevices.webp",
+    link: "/services/servers",
     features: [
       "Server installation",
       "Network design",
@@ -67,8 +68,7 @@ const services = [
       "Backup solutions",
       "Cloud integration",
       "Security hardening"
-    ],
-    gradient: "from-purple-600 to-indigo-600"
+    ]
   },
   {
     id: "maintenance",
@@ -76,6 +76,7 @@ const services = [
     description: "Preventive and corrective maintenance services to keep your IT infrastructure running smoothly. Our team provides ongoing support to minimize downtime.",
     icon: "Wrench",
     image: "/images/Preventive IT Maintenance.webp",
+    link: "/services/maintenance",
     features: [
       "Preventive maintenance",
       "Technical support",
@@ -83,8 +84,7 @@ const services = [
       "Incident resolution",
       "Performance optimization",
       "Hardware repairs"
-    ],
-    gradient: "from-amber-600 to-yellow-600"
+    ]
   },
   {
     id: "telecom",
@@ -92,6 +92,7 @@ const services = [
     description: "Complete telecom solutions including structured cabling, fiber optics and network infrastructure. We build the foundation for high-speed connectivity.",
     icon: "Wifi",
     image: "/images/networkdevices.webp",
+    link: "/services/telecom",
     features: [
       "Structured cabling",
       "Fiber optic installation",
@@ -99,8 +100,39 @@ const services = [
       "Network infrastructure",
       "Wireless solutions",
       "Bandwidth optimization"
-    ],
-    gradient: "from-cyan-600 to-blue-600"
+    ]
+  },
+  {
+    id: "cash-handling",
+    title: "Cash Handling Solutions",
+    description: "Secure and efficient cash management equipment for banks, retail and businesses. Our solutions include cash counters, sorters, and secure storage systems.",
+    icon: "Banknote",
+    image: "/images/CASH HANDLING.webp",
+    link: "/services/cash-handling",
+    features: [
+      "Advanced counting machines",
+      "Counterfeit detection",
+      "Secure storage systems",
+      "Reduced human error",
+      "Multi-currency support",
+      "Cash analytics"
+    ]
+  },
+  {
+    id: "printing",
+    title: "Printing Equipment Leasing",
+    description: "Professional printing equipment leasing services for businesses of all sizes. Get access to high-quality printers without the upfront investment.",
+    icon: "Printer",
+    image: "/images/Printing Equipment Leasing.webp",
+    link: "/services/printing",
+    features: [
+      "No upfront investment",
+      "Maintenance included",
+      "Latest technology access",
+      "Flexible lease terms",
+      "Toner & supplies included",
+      "Fleet management"
+    ]
   }
 ];
 
@@ -111,6 +143,8 @@ const iconMap: Record<string, any> = {
   Server,
   Wrench,
   Wifi,
+  Banknote,
+  Printer,
 };
 ---
 
@@ -122,62 +156,129 @@ const iconMap: Record<string, any> = {
 
   <main class="flex-1">
     <!-- Hero Section -->
-    <section class="relative py-20 bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900">
-      <div class="absolute inset-0 bg-black/30"></div>
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4" style="color: white;">
-          Our Services
-        </h1>
-        <p class="text-lg max-w-2xl mx-auto" style="color: rgba(255,255,255,0.8);">
-          Comprehensive IT and security solutions tailored to your business needs
-        </p>
+    <section class="relative py-24 md:py-32 overflow-hidden">
+      <!-- Background with brand blue -->
+      <div class="absolute inset-0 bg-[#1c6cb1]">
+        <div class="absolute inset-0">
+          <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="hero-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.1"/>
+              </pattern>
+              <pattern id="hero-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1" fill="#ffffff" opacity="0.15"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hero-grid)"/>
+            <rect width="100%" height="100%" fill="url(#hero-dots)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Decorative elements -->
+      <div class="absolute top-0 right-0 w-96 h-96 bg-[#5a9fd4]/30 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-0 left-0 w-80 h-80 bg-[#155a94]/50 rounded-full blur-[100px]"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
+            <span class="w-2 h-2 bg-white rounded-full"></span>
+            <span class="text-sm font-medium" style="color: rgba(255,255,255,0.9);">What We Do</span>
+          </div>
+
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="color: white;">
+            Our Services
+          </h1>
+          <p class="text-lg md:text-xl leading-relaxed" style="color: rgba(255,255,255,0.85);">
+            Comprehensive IT and security solutions tailored to your business needs. From surveillance to network infrastructure, we've got you covered.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Quick Nav -->
+    <section class="bg-white border-b border-slate-100 sticky top-20 z-40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex overflow-x-auto py-4 gap-2 scrollbar-hide">
+          {services.map((service) => {
+            const IconComponent = iconMap[service.icon];
+            return (
+              <a
+                href={service.link}
+                class="flex items-center gap-2 px-4 py-2 bg-slate-50 hover:bg-primary/10 rounded-lg whitespace-nowrap transition-colors group"
+              >
+                <IconComponent class="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" />
+                <span class="text-sm font-medium text-slate-600 group-hover:text-primary transition-colors">{service.title}</span>
+              </a>
+            );
+          })}
+        </div>
       </div>
     </section>
 
     <!-- Services List -->
-    <section class="py-20">
+    <section class="bg-slate-50 bg-pattern-dots">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="space-y-16">
+        <div class="divide-y divide-slate-200">
           {services.map((service, index) => {
             const IconComponent = iconMap[service.icon];
             const isReversed = index % 2 !== 0;
 
             return (
-              <div id={service.id} class="scroll-mt-24">
-                <div class={`flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center`}>
+              <div id={service.id} class="scroll-mt-40 section-padding">
+                <div class={`flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-16 items-center`}>
                   <!-- Visual -->
                   <div class="lg:w-1/2">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200/50 group">
                       <img
                         src={service.image}
                         alt={service.title}
-                        class="w-full aspect-video object-cover"
+                        class="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div class={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20`}></div>
+                      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent"></div>
+
+                      <!-- Service number badge -->
+                      <div class="absolute top-6 left-6 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg">
+                        <span class="text-sm font-bold text-primary">0{index + 1}</span>
+                      </div>
                     </div>
                   </div>
 
                   <!-- Content -->
                   <div class="lg:w-1/2">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    <!-- Icon and badge -->
+                    <div class="flex items-center gap-4 mb-6">
+                      <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center">
+                        <IconComponent class="w-7 h-7 text-primary" />
+                      </div>
+                      <div class="h-px bg-slate-200 flex-1"></div>
+                    </div>
+
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
                       {service.title}
                     </h2>
-                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    <p class="text-slate-600 text-lg leading-relaxed mb-8">
                       {service.description}
                     </p>
-                    <ul class="grid grid-cols-2 gap-3 mb-8">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
                       {service.features.map((feature) => (
-                        <li class="flex items-center gap-2 text-gray-600">
-                          <span class="w-2 h-2 bg-primary rounded-full flex-shrink-0"></span>
-                          {feature}
-                        </li>
+                        <div class="flex items-center gap-3">
+                          <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <Check class="w-4 h-4 text-primary" />
+                          </div>
+                          <span class="text-slate-700">{feature}</span>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
+
                     <a
-                      href="#contact"
-                      class="inline-block bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-semibold transition"
+                      href={service.link}
+                      class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 group"
                     >
-                      Request Information
+                      Learn More
+                      <ArrowRight class="w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </a>
                   </div>
                 </div>
@@ -198,3 +299,13 @@ const iconMap: Record<string, any> = {
 
   <Footer />
 </Layout>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>

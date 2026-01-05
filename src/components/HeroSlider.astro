@@ -1,117 +1,161 @@
 ---
-import { ChevronLeft, ChevronRight } from 'lucide-astro';
+import { ArrowRight } from 'lucide-astro';
 
 const slides = [
   {
+    image: "/images/Integrated IT Solutions hero.jpeg",
     title: "Integrated IT Solutions",
-    subtitle: "How can businesses overcome the challenges of complex IT environments?",
-    highlight: "Radical simplicity is the answer.",
-    cta: { text: "Contact Us", href: "#contact" },
-    bgImage: "/images/Integrated IT Solutions hero.jpeg"
+    subtitle: "Radical simplicity is the answer."
   },
   {
-    title: "Quality Service & After-Sales Support",
-    subtitle: "Professional IT maintenance available 24/7",
-    cta: { text: "Start Now", href: "/services" },
-    bgImage: "/images/Quality Service & After-Sales Support hero.jpg"
+    image: "/images/Quality Service & After-Sales Support hero.jpg",
+    title: "Quality Service",
+    subtitle: "Professional IT maintenance 24/7"
   },
   {
+    image: "/images/IT Equipment Supply hero.webp",
     title: "IT Equipment Supply",
-    subtitle: "Need IT equipment for your business? OPTIMUX offers complete IT equipment procurement services.",
-    cta: { text: "Start Now", href: "#contact" },
-    bgImage: "/images/IT Equipment Supply hero.webp"
+    subtitle: "Complete procurement services"
   }
 ];
 ---
 
-<section class="relative h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
-  <!-- Slides Container -->
-  <div id="hero-slider" class="relative h-full">
-    {slides.map((slide, index) => (
-      <div
-        class={`slide absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
-        data-index={index}
-      >
-        <!-- Background Image -->
-        <img
-          src={slide.bgImage}
-          alt={slide.title}
-          class="absolute inset-0 w-full h-full object-cover"
-        />
+<section class="relative min-h-[550px] lg:min-h-[650px] overflow-hidden">
+  <!-- SVG Pattern Background - covers entire hero with brand blue -->
+  <div class="absolute inset-0 bg-[#1c6cb1]">
+    <div class="absolute inset-0">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <!-- Shield pattern inspired by Optimux logo -->
+          <pattern id="shield-pattern" x="0" y="0" width="100" height="120" patternUnits="userSpaceOnUse">
+            <path d="M50 8 L88 22 L88 52 Q88 82 50 96 Q12 82 12 52 L12 22 Z"
+                  fill="none" stroke="#ffffff" stroke-width="1" opacity="0.1"/>
+            <path d="M50 20 L72 30 L72 48 Q72 68 50 78 Q28 68 28 48 L28 30 Z"
+                  fill="none" stroke="#5a9fd4" stroke-width="0.6" opacity="0.15"/>
+          </pattern>
+          <!-- Flowing curves pattern - inspired by logo inner curves -->
+          <pattern id="curves-pattern" x="0" y="0" width="300" height="150" patternUnits="userSpaceOnUse">
+            <path d="M0 75 Q 75 35, 150 75 T 300 75" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+            <path d="M0 100 Q 75 60, 150 100 T 300 100" fill="none" stroke="#5a9fd4" stroke-width="0.8" opacity="0.1"/>
+            <path d="M0 50 Q 75 10, 150 50 T 300 50" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.06"/>
+          </pattern>
+          <!-- Orbital ellipses - inspired by logo construction grid -->
+          <pattern id="orbits-pattern" x="0" y="0" width="500" height="500" patternUnits="userSpaceOnUse">
+            <ellipse cx="250" cy="250" rx="200" ry="80" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.06" transform="rotate(-15 250 250)"/>
+            <ellipse cx="250" cy="250" rx="160" ry="60" fill="none" stroke="#5a9fd4" stroke-width="0.4" opacity="0.08" transform="rotate(25 250 250)"/>
+            <ellipse cx="250" cy="250" rx="120" ry="45" fill="none" stroke="#ffffff" stroke-width="0.3" opacity="0.04" transform="rotate(-40 250 250)"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#shield-pattern)"/>
+        <rect width="100%" height="100%" fill="url(#curves-pattern)"/>
+        <rect width="100%" height="100%" fill="url(#orbits-pattern)"/>
+      </svg>
+    </div>
+  </div>
 
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-black/30"></div>
+  <!-- Decorative gradient orbs -->
+  <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-[#155a94]/40 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
+  <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#5a9fd4]/25 rounded-full blur-[100px] translate-x-1/4 translate-y-1/4"></div>
 
-        <!-- Content -->
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-4xl mx-auto leading-tight" style="color: white;">
-            {slide.title}
+  <!-- Main Content Grid -->
+  <div class="relative z-10 h-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[550px] lg:min-h-[650px]">
+
+      <!-- Left Side - Fixed Text Content (more centered) -->
+      <div class="flex items-center justify-center px-4 sm:px-6 lg:px-12 xl:px-20 py-12 lg:py-0">
+        <div class="max-w-lg text-center lg:text-left">
+          <!-- Brand -->
+          <div class="flex items-center gap-4 mb-8">
+            <img src="/images/logo.jpeg" alt="Optimux" class="h-14 w-auto drop-shadow-lg" />
+            <span class="text-2xl font-bold tracking-wide drop-shadow-lg" style="color: white;">
+              OPTIMUX SOLUTIONS
+            </span>
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="color: white;">
+            Integrated IT
+            <span class="block text-white/90">Solutions</span>
           </h1>
-          <p class="text-base sm:text-lg md:text-xl mb-4 max-w-2xl mx-auto" style="color: rgba(255,255,255,0.9);">
-            {slide.subtitle}
+
+          <!-- Main Subtitle -->
+          <p class="text-lg sm:text-xl mb-8 leading-relaxed" style="color: rgba(255,255,255,0.85);">
+            How can businesses overcome the challenges of complex IT environments?
           </p>
-          {slide.highlight && (
-            <p class="text-lg sm:text-xl md:text-2xl font-semibold mb-8" style="color: white;">
-              {slide.highlight}
-            </p>
-          )}
-          <a
-            href={slide.cta.href}
-            class="inline-block bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-bold text-lg transition transform hover:scale-105 shadow-lg"
-          >
-            {slide.cta.text}
-          </a>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a
+              href="/contact"
+              class="group inline-flex items-center justify-center gap-2 bg-white hover:bg-white/90 text-[#1c6cb1] px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-black/20 hover:shadow-xl"
+            >
+              Contact Us
+              <ArrowRight class="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </a>
+            <a
+              href="/services"
+              class="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 px-8 py-4 rounded-xl font-bold text-lg transition-all"
+              style="color: white;"
+            >
+              Explore Services
+            </a>
+          </div>
         </div>
       </div>
-    ))}
-  </div>
 
-  <!-- Dots Navigation -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
-    {slides.map((_, index) => (
-      <button
-        class={`dot h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-primary w-8' : 'bg-white/50 hover:bg-white/80 w-3'}`}
-        data-index={index}
-        aria-label={`Go to slide ${index + 1}`}
-      ></button>
-    ))}
-  </div>
+      <!-- Right Side - Image Slider (full height, no card) -->
+      <div class="relative">
+        <!-- Images -->
+        {slides.map((slide, index) => (
+          <div
+            class={`slide absolute inset-0 transition-all duration-700 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+            data-index={index}
+          >
+            <!-- Image -->
+            <img
+              src={slide.image}
+              alt={slide.title}
+              class="w-full h-full object-cover"
+            />
+            <!-- Gradient overlay for text readability -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#1c6cb1] via-[#1c6cb1]/70 to-transparent lg:from-[#1c6cb1] lg:via-[#1c6cb1]/60 lg:to-[#1c6cb1]/30"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1c6cb1]/70 via-transparent to-transparent"></div>
 
-  <!-- Arrows -->
-  <button
-    id="prev-btn"
-    class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 p-3 rounded-full transition hidden sm:block"
-    aria-label="Previous slide"
-  >
-    <ChevronLeft class="w-6 h-6 text-white" />
-  </button>
-  <button
-    id="next-btn"
-    class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 p-3 rounded-full transition hidden sm:block"
-    aria-label="Next slide"
-  >
-    <ChevronRight class="w-6 h-6 text-white" />
-  </button>
+            <!-- Slide Text (positioned on right side of image) -->
+            <div class="absolute bottom-8 left-6 right-6 lg:bottom-12 lg:left-auto lg:right-12 lg:max-w-sm text-left">
+              <h2 class="text-2xl lg:text-3xl font-bold mb-2" style="color: white;">
+                {slide.title}
+              </h2>
+              <p class="text-base lg:text-lg" style="color: rgba(255,255,255,0.85);">
+                {slide.subtitle}
+              </p>
+            </div>
+          </div>
+        ))}
+
+      </div>
+    </div>
+
+    </div>
+  </div>
 </section>
 
 <script>
+  // Slide auto-rotation
   let currentSlide = 0;
   const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.dot');
   const totalSlides = slides.length;
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
+  const SLIDE_DURATION = 5000;
 
   function goToSlide(index: number) {
     slides.forEach((slide, i) => {
-      slide.classList.toggle('opacity-100', i === index);
-      slide.classList.toggle('opacity-0', i !== index);
-    });
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('bg-primary', i === index);
-      dot.classList.toggle('w-8', i === index);
-      dot.classList.toggle('bg-white/50', i !== index);
-      dot.classList.toggle('w-3', i !== index);
+      if (i === index) {
+        slide.classList.remove('opacity-0');
+        slide.classList.add('opacity-100');
+      } else {
+        slide.classList.remove('opacity-100');
+        slide.classList.add('opacity-0');
+      }
     });
     currentSlide = index;
   }
@@ -120,35 +164,6 @@ const slides = [
     goToSlide((currentSlide + 1) % totalSlides);
   }
 
-  function prevSlide() {
-    goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
-  }
-
-  // Auto-play
-  let autoPlay = setInterval(nextSlide, 5000);
-
-  // Reset autoplay on interaction
-  function resetAutoPlay() {
-    clearInterval(autoPlay);
-    autoPlay = setInterval(nextSlide, 5000);
-  }
-
-  // Click on dots
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      goToSlide(index);
-      resetAutoPlay();
-    });
-  });
-
-  // Arrow buttons
-  prevBtn?.addEventListener('click', () => {
-    prevSlide();
-    resetAutoPlay();
-  });
-
-  nextBtn?.addEventListener('click', () => {
-    nextSlide();
-    resetAutoPlay();
-  });
+  // Start slide auto-play
+  setInterval(nextSlide, SLIDE_DURATION);
 </script>
