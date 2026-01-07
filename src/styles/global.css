@@ -1,5 +1,30 @@
 @import "tailwindcss";
 
+/* Brand Fonts */
+@font-face {
+  font-family: 'BankGothic';
+  src: url('/font/bankgothic-md-bt/Bank Gothic Light Regular.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BankGothic';
+  src: url('/font/bankgothic-md-bt/BankGothicMediumBT.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BankGothic';
+  src: url('/font/bankgothic-md-bt/BankGothic Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   /* Primary Colors - Optimux Blue (from brand manual: #1c6cb1) */
   --color-primary: #1c6cb1;
