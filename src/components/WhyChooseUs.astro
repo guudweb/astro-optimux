@@ -1,0 +1,48 @@
+---
+import { Zap, Award, Users, TrendingUp } from 'lucide-astro';
+
+const whyChooseUs = [
+  {
+    icon: Zap,
+    title: 'Responsiveness',
+    description: 'Fast intervention and effective solutions for all your IT needs'
+  },
+  {
+    icon: Award,
+    title: 'Excellence',
+    description: 'Professional certifications and recognized expertise in the field'
+  },
+  {
+    icon: Users,
+    title: 'Support',
+    description: 'Personalized support and continuous training for your teams'
+  },
+  {
+    icon: TrendingUp,
+    title: 'Innovation',
+    description: 'Cutting-edge technologies to stay competitive in the market'
+  }
+];
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Why Choose Us</h2>
+      <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+        Excellence, innovation, and your satisfaction at the heart of our priorities
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {whyChooseUs.map((item) => (
+        <div class="text-center group hover:scale-105 transition-transform duration-300">
+          <div class="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-xl transition-shadow">
+            <item.icon class="w-10 h-10 text-blue-700" />
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+          <p class="text-slate-600 leading-relaxed">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

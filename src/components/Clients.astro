@@ -1,0 +1,57 @@
+---
+const clients = [
+  { name: 'BGFI', logo: '/images/clients/bgfi.webp' },
+  { name: 'CNDES', logo: '/images/clients/cndes.webp' },
+  { name: 'Deloitte', logo: '/images/clients/deloite.png' },
+  { name: 'EY', logo: '/images/clients/ey.png' },
+  { name: 'INSESO', logo: '/images/clients/inseso.webp' },
+  { name: 'Simple Star', logo: '/images/clients/simple star.png' },
+];
+
+// Duplicate for seamless loop
+const allClients = [...clients, ...clients];
+---
+
+<section class="py-24 bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Our Satisfied Clients</h2>
+      <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+        Trusted by leading organizations across Equatorial Guinea
+      </p>
+    </div>
+  </div>
+
+  <!-- Infinite Carousel -->
+  <div class="relative">
+    <div class="clients-carousel flex">
+      {allClients.map((client, index) => (
+        <div class="flex-shrink-0 px-6">
+          <div class="flex items-center justify-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 w-48 h-24">
+            <img src={client.logo} alt={client.name} class="h-12 w-auto object-contain" />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .clients-carousel {
+    animation: scroll 25s linear infinite;
+    width: max-content;
+  }
+
+  .clients-carousel:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
