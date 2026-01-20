@@ -88,9 +88,16 @@ const isHomePage = currentPath === '/';
         <!-- Logo -->
         <a href="/" class="flex items-center space-x-3 group">
           <img
+            id="logo-light"
+            src="/images/Logo-06 (Edited).png"
+            alt="OptimuxSolutions"
+            class="h-12 w-auto transition-all duration-300 group-hover:scale-105"
+          />
+          <img
+            id="logo-dark"
             src="/images/Logo-05.png"
             alt="OptimuxSolutions"
-            class="h-12 w-auto transition-transform group-hover:scale-105"
+            class="h-12 w-auto transition-all duration-300 group-hover:scale-105 hidden"
           />
           <div class="hidden sm:flex flex-col items-center">
             <span id="logo-text" class="text-2xl tracking-tight leading-none transition-colors duration-300" style="font-family: 'Exo', sans-serif; font-weight: 900;">OPTIMUX</span>
@@ -297,6 +304,8 @@ const isHomePage = currentPath === '/';
   const mainNav = document.getElementById('main-nav');
   const logoText = document.getElementById('logo-text');
   const logoSubtext = document.getElementById('logo-subtext');
+  const logoLight = document.getElementById('logo-light');
+  const logoDark = document.getElementById('logo-dark');
   const ctaBtn = document.getElementById('cta-btn');
   const headerSpacer = document.getElementById('header-spacer');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -314,6 +323,9 @@ const isHomePage = currentPath === '/';
     logoText?.classList.add('text-white');
     logoSubtext?.classList.remove('text-slate-600');
     logoSubtext?.classList.add('text-white/70');
+    // Show light logo (for dark background)
+    logoLight?.classList.remove('hidden');
+    logoDark?.classList.add('hidden');
     ctaBtn?.classList.remove('bg-gradient-to-r', 'from-blue-700', 'to-blue-900', 'text-white');
     ctaBtn?.classList.add('bg-white', 'text-blue-900', 'hover:bg-blue-50');
     navLinks.forEach(link => {
@@ -331,6 +343,9 @@ const isHomePage = currentPath === '/';
     logoText?.classList.add('text-slate-900');
     logoSubtext?.classList.remove('text-white/70');
     logoSubtext?.classList.add('text-slate-600');
+    // Show dark logo (for light background)
+    logoLight?.classList.add('hidden');
+    logoDark?.classList.remove('hidden');
     ctaBtn?.classList.remove('bg-white', 'text-blue-900', 'hover:bg-blue-50');
     ctaBtn?.classList.add('bg-gradient-to-r', 'from-blue-700', 'to-blue-900', 'text-white');
     navLinks.forEach(link => {

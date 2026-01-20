@@ -20,29 +20,25 @@ const {
 // Slides para el Hero Slider
 const heroSlides = [
   {
-    image: '/images/electronic-security.png',
-    title: 'Electronic Security',
-    subtitle: 'Protect your business with advanced CCTV, access control, and alarm systems'
+    image: '/images/hero-bg.png',
+    mainSlogan: 'Optimize Today, Perform Tomorrow',
+    tagline: 'Innovative IT Solutions for Your Digital Transformation',
+    subtitle: 'Complete expertise in infrastructure, cybersecurity, software development, and IT services to propel your business to success.'
   },
   {
     image: '/images/it-infrastructure.png',
-    title: 'IT Infrastructure',
-    subtitle: 'Design and deployment of robust network and system infrastructures'
+    title: 'Integrated and Extended Solutions',
+    subtitle: 'How can businesses overcome the challenges of complex IT environments? Radical simplicity is the answer.'
   },
   {
-    image: '/images/cybersecurity.png',
-    title: 'Cybersecurity',
-    subtitle: 'Complete protection of your systems and data against cyber threats'
-  },
-  {
-    image: '/images/software-dev.png',
-    title: 'Software Development',
-    subtitle: 'Custom web and mobile applications tailored to your business needs'
+    image: '/images/electronic-security.png',
+    title: 'Quality Service and After-Sales Support',
+    subtitle: 'We stand behind every solution we deliver with dedicated support and maintenance services.'
   },
   {
     image: '/images/equipment-services.png',
-    title: 'Equipment & Services',
-    subtitle: 'IT equipment supply and managed services for your infrastructure'
+    title: 'IT Equipment Supply and Procurement',
+    subtitle: 'Do you need IT equipment procurement for your company? Optimux offers complete IT equipment procurement services. We offer no hassle warranties and don\'t require long-term contracts.'
   }
 ];
 ---
@@ -70,8 +66,8 @@ const heroSlides = [
     </div>
   </section>
 ) : (
-  <!-- Full Hero with Slider for home page -->
-  <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 text-white overflow-hidden">
+  <!-- Hero with Slider for home page (reduced size, centered layout with background image) -->
+  <section class="relative py-32 md:py-40 flex items-center justify-center bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 text-white overflow-hidden">
     <!-- Slides Container (Background Images) -->
     <div id="hero-slider" class="absolute inset-0">
       {heroSlides.map((slide, index) => (
@@ -95,7 +91,7 @@ const heroSlides = [
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/50 to-blue-950"></div>
 
     <!-- Content -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+    <div class="relative z-10 max-w-6xl mx-auto px-8 sm:px-12 lg:px-16 text-center py-10">
       <!-- Slide Texts Container -->
       <div id="hero-texts" class="relative">
         {heroSlides.map((slide, index) => (
@@ -103,10 +99,25 @@ const heroSlides = [
             class={`hero-text absolute inset-0 transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             data-index={index}
           >
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8" style="color: white;">
-              {slide.title}
-            </h1>
-            <p class="text-xl md:text-2xl mb-10 text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            {slide.mainSlogan ? (
+              <>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 whitespace-nowrap">
+                  <span style="color: white;">Optimize Today,</span>{" "}
+                  <span class="text-blue-400">Perform Tomorrow</span>
+                </h1>
+                {slide.tagline && (
+                  <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
+                    <span style="color: white;">Innovative IT Solutions for</span>{" "}
+                    <span style="color: white;">Your Digital Transformation</span>
+                  </h2>
+                )}
+              </>
+            ) : (
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6" style="color: white;">
+                {slide.title}
+              </h1>
+            )}
+            <p class="text-lg md:text-xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
               {slide.subtitle}
             </p>
           </div>
@@ -114,10 +125,15 @@ const heroSlides = [
 
         <!-- Invisible placeholder for height -->
         <div class="invisible">
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8">
-            {heroSlides[0].title}
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 whitespace-nowrap">
+            <span style="color: white;">Optimize Today,</span>{" "}
+            <span class="text-blue-400">Perform Tomorrow</span>
           </h1>
-          <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
+            <span style="color: white;">Innovative IT Solutions for</span>{" "}
+            <span style="color: white;">Your Digital Transformation</span>
+          </h2>
+          <p class="text-lg md:text-xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
             {heroSlides[0].subtitle}
           </p>
         </div>
@@ -165,7 +181,9 @@ const heroSlides = [
 
     var currentSlide = 0;
     var totalSlides = slides.length;
-    var autoplayInterval = null;
+    var autoplayTimeout = null;
+    var FIRST_SLIDE_DURATION = 7000; // 7 seconds for first slide
+    var OTHER_SLIDE_DURATION = 4000; // 4 seconds for other slides
 
     function showSlide(index) {
       // Hide all slides (backgrounds)
@@ -208,13 +226,16 @@ const heroSlides = [
     function nextSlide() {
       var next = (currentSlide + 1) % totalSlides;
       showSlide(next);
+      scheduleNextSlide();
     }
 
-    function startAutoplay() {
-      if (autoplayInterval) {
-        clearInterval(autoplayInterval);
+    function scheduleNextSlide() {
+      if (autoplayTimeout) {
+        clearTimeout(autoplayTimeout);
       }
-      autoplayInterval = setInterval(nextSlide, 4000);
+      // First slide gets extra time
+      var duration = currentSlide === 0 ? FIRST_SLIDE_DURATION : OTHER_SLIDE_DURATION;
+      autoplayTimeout = setTimeout(nextSlide, duration);
     }
 
     // Add click handlers to indicators
@@ -222,12 +243,12 @@ const heroSlides = [
       (function(index) {
         indicators[index].addEventListener('click', function() {
           showSlide(index);
-          startAutoplay();
+          scheduleNextSlide();
         });
       })(k);
     }
 
     // Start autoplay
-    startAutoplay();
+    scheduleNextSlide();
   });
 </script>
