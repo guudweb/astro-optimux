@@ -3,309 +3,367 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTASection from '../components/CTASection.astro';
-import { Camera, Shield, DoorOpen, Server, Wrench, Wifi, Banknote, Printer, Check, ArrowRight } from 'lucide-astro';
+import { FileText, Network, Shield, Code, Camera, Server, Printer, ScanLine, Cloud, Check, ArrowRight } from 'lucide-astro';
 
-const services = [
+const allServices = [
   {
-    id: "cctv",
-    title: "CCTV Video Surveillance",
-    description: "Prevent theft, monitor critical areas and secure your facilities with reliable video surveillance. Our CCTV solutions provide real-time monitoring and continuous recording for offices, businesses and industrial buildings.",
-    icon: "Camera",
-    image: "/images/cctv.webp",
-    link: "/services/cctv",
-    features: [
-      "IP and analog cameras",
-      "DVR/NVR systems",
-      "Remote monitoring",
-      "Cloud storage",
-      "Night vision capability",
-      "Motion detection alerts"
+    category: 'IT Consulting & Audit',
+    description: 'Strategic support to realize and manage your IT projects',
+    icon: FileText,
+    image: '/images/consulting-audit.png',
+    services: [
+      {
+        icon: FileText,
+        title: 'Needs Assessment',
+        description: 'In-depth analysis of your IT needs and identification of improvement opportunities.',
+        features: ['Complete diagnosis', 'Process analysis', 'Strategic recommendations', 'Detailed action plan']
+      },
+      {
+        icon: FileText,
+        title: 'Specifications',
+        description: 'Writing precise and complete technical specifications.',
+        features: ['Detailed specifications', 'Functional requirements', 'Technical constraints', 'Validation criteria']
+      },
+      {
+        icon: FileText,
+        title: 'IT Roadmaps',
+        description: 'Development of IT roadmaps aligned with your business strategy.',
+        features: ['Strategic vision', 'Technology roadmap', 'Budget forecast', 'IT governance']
+      },
+      {
+        icon: FileText,
+        title: 'Project Management',
+        description: 'Management and oversight of your IT projects from A to Z.',
+        features: ['Agile/SCRUM methodology', 'Deliverable tracking', 'Risk management', 'Regular reporting']
+      }
     ]
   },
   {
-    id: "alarm",
-    title: "Alarm & Fire Systems",
-    description: "Comprehensive protection with fire detection and early warning systems. We install and maintain certified alarm systems that keep your premises safe around the clock.",
-    icon: "Shield",
-    image: "/images/firealarm.webp",
-    link: "/services/alarm",
-    features: [
-      "Fire detection systems",
-      "Intrusion alarms",
-      "24/7 monitoring",
-      "Emergency response integration",
-      "Smoke and heat detectors",
-      "Regular maintenance"
+    category: 'IT Infrastructure',
+    description: 'Design and deployment of robust network and system infrastructures',
+    icon: Network,
+    image: '/images/it-infrastructure.png',
+    services: [
+      {
+        icon: Network,
+        title: 'LAN/WAN/WLAN Networks',
+        description: 'Design and deployment of high-performance local, wide area, and wireless networks.',
+        features: ['Network architecture', 'Switch/router configuration', 'Enterprise Wi-Fi', 'Performance optimization']
+      },
+      {
+        icon: Cloud,
+        title: 'Storage & Remote Access',
+        description: 'Secure storage solutions and remote access for your teams.',
+        features: ['NAS/SAN', 'Cloud storage', 'Secure VPN', 'Mobile access']
+      },
+      {
+        icon: Server,
+        title: 'Backup & Recovery',
+        description: 'Reliable backup systems to protect your critical data.',
+        features: ['Automated backup', 'Disaster recovery', 'Data replication', 'Recovery testing']
+      },
+      {
+        icon: Server,
+        title: 'Virtualization',
+        description: 'Virtualization solutions to optimize your IT resources.',
+        features: ['VMware/Hyper-V', 'Server virtualization', 'VDI (virtual desktops)', 'Infrastructure consolidation']
+      },
+      {
+        icon: Network,
+        title: 'Collaboration Solutions',
+        description: 'Collaborative tools to improve your team productivity.',
+        features: ['Microsoft Teams/Zoom', 'Unified messaging', 'File sharing', 'Video conferencing']
+      }
     ]
   },
   {
-    id: "access",
-    title: "Access Control",
-    description: "Control who enters your facilities and when with our advanced access control systems. From biometric readers to RFID cards, we provide complete security solutions.",
-    icon: "DoorOpen",
-    image: "/images/accescontrolcard.webp",
-    link: "/services/access",
-    features: [
-      "Biometric readers",
-      "RFID card systems",
-      "Electronic locks",
-      "Access logging",
-      "Time attendance integration",
-      "Visitor management"
+    category: 'Cybersecurity',
+    description: 'Complete protection of your systems and data against threats',
+    icon: Shield,
+    image: '/images/cybersecurity.png',
+    services: [
+      {
+        icon: Shield,
+        title: 'Firewall & Protection',
+        description: 'Advanced firewall solutions to secure your network.',
+        features: ['Next-generation firewall', 'Content filtering', 'Intrusion prevention', 'DDoS protection']
+      },
+      {
+        icon: Shield,
+        title: 'Antivirus & Anti-malware',
+        description: 'Endpoint protection against viruses, malware, and ransomware.',
+        features: ['Real-time protection', 'Behavioral detection', 'Automatic quarantine', 'Continuous updates']
+      },
+      {
+        icon: Shield,
+        title: 'MFA Authentication',
+        description: 'Multi-factor authentication to secure access.',
+        features: ['Two-factor authentication', 'Biometrics', 'Secure tokens', 'SSO (Single Sign-On)']
+      },
+      {
+        icon: Shield,
+        title: 'Security Audits',
+        description: 'Comprehensive audits to assess and improve your security posture.',
+        features: ['Compliance audit', 'Vulnerability analysis', 'Recommendations', 'Remediation plan']
+      },
+      {
+        icon: Shield,
+        title: 'Penetration Testing',
+        description: 'Pentests to identify security flaws before hackers do.',
+        features: ['External penetration testing', 'Internal testing', 'Social engineering', 'Detailed report']
+      }
     ]
   },
   {
-    id: "servers",
-    title: "Servers & Networks",
-    description: "Enterprise-grade server installation, configuration and administration. We design secure and scalable networks that grow with your business.",
-    icon: "Server",
-    image: "/images/server.jpg",
-    link: "/services/servers",
-    features: [
-      "Server installation",
-      "Network design",
-      "Virtualization",
-      "Backup solutions",
-      "Cloud integration",
-      "Security hardening"
+    category: 'Software Development',
+    description: 'Creation of custom software solutions for your business needs',
+    icon: Code,
+    image: '/images/software-dev.png',
+    services: [
+      {
+        icon: Code,
+        title: 'Web & Mobile Applications',
+        description: 'Development of modern and high-performance web and mobile applications.',
+        features: ['Progressive Web Apps', 'Native iOS/Android apps', 'React/Angular/Vue.js', 'Responsive design']
+      },
+      {
+        icon: Code,
+        title: 'Information Systems',
+        description: 'Design and development of business information systems.',
+        features: ['IS architecture', 'Databases', 'RESTful APIs', 'Microservices']
+      },
+      {
+        icon: Code,
+        title: 'Business Solutions',
+        description: 'Development of customized business software.',
+        features: ['Custom ERP', 'Personalized CRM', 'Inventory management', 'Invoicing']
+      },
+      {
+        icon: Code,
+        title: 'System Integration',
+        description: 'Integration and interconnection of your existing systems.',
+        features: ['API connectors', 'ETL (Extract, Transform, Load)', 'Middleware', 'Data synchronization']
+      }
     ]
   },
   {
-    id: "maintenance",
-    title: "IT Maintenance",
-    description: "Preventive and corrective maintenance services to keep your IT infrastructure running smoothly. Our team provides ongoing support to minimize downtime.",
-    icon: "Wrench",
-    image: "/images/Preventive IT Maintenance.webp",
-    link: "/services/maintenance",
-    features: [
-      "Preventive maintenance",
-      "Technical support",
-      "System updates",
-      "Incident resolution",
-      "Performance optimization",
-      "Hardware repairs"
+    category: 'Electronic Security',
+    description: 'Physical security systems to protect people and property',
+    icon: Camera,
+    image: '/images/electronic-security.png',
+    services: [
+      {
+        icon: Camera,
+        title: 'Video Surveillance',
+        description: 'Installation of IP and analog video surveillance systems.',
+        features: ['HD/4K cameras', 'Continuous recording', 'Remote access', 'Intelligent video analysis']
+      },
+      {
+        icon: Camera,
+        title: 'Access Control',
+        description: 'Biometric and badge-based access control systems.',
+        features: ['RFID badges', 'Biometrics (fingerprint, facial)', 'Rights management', 'Complete traceability']
+      },
+      {
+        icon: Camera,
+        title: 'Intrusion Detection',
+        description: 'Perimeter and volumetric intrusion detection systems.',
+        features: ['Motion detectors', 'Infrared barriers', 'Perimeter sensors', 'Real-time alerts']
+      },
+      {
+        icon: Camera,
+        title: 'Alarm Systems',
+        description: 'Installation of anti-intrusion and fire alarms.',
+        features: ['Anti-intrusion alarm', 'Fire detection', 'Indoor/outdoor sirens', 'Remote monitoring']
+      }
     ]
   },
   {
-    id: "telecom",
-    title: "Telecommunications",
-    description: "Complete telecom solutions including structured cabling, fiber optics and network infrastructure. We build the foundation for high-speed connectivity.",
-    icon: "Wifi",
-    image: "/images/networkdevices.webp",
-    link: "/services/telecom",
-    features: [
-      "Structured cabling",
-      "Fiber optic installation",
-      "VoIP systems",
-      "Network infrastructure",
-      "Wireless solutions",
-      "Bandwidth optimization"
+    category: 'Equipment & Managed Services',
+    description: 'IT equipment supply and outsourced management of your infrastructure',
+    icon: Server,
+    image: '/images/equipment-services.png',
+    services: [
+      {
+        icon: Server,
+        title: 'Multi-brand IT Hardware',
+        description: 'Sale and installation of IT hardware from all brands.',
+        features: ['Servers', 'Workstations', 'Network equipment', 'Peripherals']
+      },
+      {
+        icon: Server,
+        title: 'Complete Managed Services',
+        description: 'Outsourcing of your IT infrastructure management.',
+        features: ['Proactive management', '24/7 monitoring', 'Preventive maintenance', 'Continuous optimization']
+      },
+      {
+        icon: Server,
+        title: '24/7 Technical Support',
+        description: 'Technical assistance available at all times.',
+        features: ['24/7 hotline', 'Fast intervention', 'Remote support', 'On-site assistance']
+      },
+      {
+        icon: Server,
+        title: 'Maintenance Contracts',
+        description: 'Preventive and corrective maintenance contracts with SLA.',
+        features: ['Preventive maintenance', 'Corrective interventions', 'Guaranteed SLA', 'Spare parts']
+      }
     ]
   },
   {
-    id: "cash-handling",
-    title: "Cash Handling Solutions",
-    description: "Secure and efficient cash management equipment for banks, retail and businesses. Our solutions include cash counters, sorters, and secure storage systems.",
-    icon: "Banknote",
-    image: "/images/CASH HANDLING.webp",
-    link: "/services/cash-handling",
-    features: [
-      "Advanced counting machines",
-      "Counterfeit detection",
-      "Secure storage systems",
-      "Reduced human error",
-      "Multi-currency support",
-      "Cash analytics"
+    category: 'Printer Leasing & Rentals',
+    description: 'Flexible printer leasing and rental solutions for businesses',
+    icon: Printer,
+    image: '/images/printer-leasing.png',
+    services: [
+      {
+        icon: Printer,
+        title: 'Multifunction Printer Leasing',
+        description: 'Lease modern multifunction printers with flexible terms.',
+        features: ['Print, scan, copy, fax', 'Color and B&W options', 'High-speed printing', 'Network connectivity']
+      },
+      {
+        icon: Printer,
+        title: 'Short-term Rentals',
+        description: 'Rent printers for events, projects, or temporary needs.',
+        features: ['Daily/weekly/monthly rates', 'Quick delivery', 'Setup included', 'Technical support']
+      },
+      {
+        icon: Printer,
+        title: 'Managed Print Services',
+        description: 'Complete print management including supplies and maintenance.',
+        features: ['Automatic toner delivery', 'Preventive maintenance', 'Usage monitoring', 'Cost optimization']
+      },
+      {
+        icon: Printer,
+        title: 'Enterprise Solutions',
+        description: 'Large-scale printer solutions for enterprise environments.',
+        features: ['High-volume printing', 'Secure printing', 'Document management', 'Fleet management']
+      }
     ]
   },
   {
-    id: "printing",
-    title: "Printing Equipment Leasing",
-    description: "Professional printing equipment leasing services for businesses of all sizes. Get access to high-quality printers without the upfront investment.",
-    icon: "Printer",
-    image: "/images/Printing Equipment Leasing.webp",
-    link: "/services/printing",
-    features: [
-      "No upfront investment",
-      "Maintenance included",
-      "Latest technology access",
-      "Flexible lease terms",
-      "Toner & supplies included",
-      "Fleet management"
+    category: 'X-Ray Inspection Machines',
+    description: 'Advanced X-ray inspection systems for security and cargo screening',
+    icon: ScanLine,
+    image: '/images/xray-inspection.png',
+    services: [
+      {
+        icon: ScanLine,
+        title: 'Baggage Screening Systems',
+        description: 'High-performance X-ray systems for baggage and parcel inspection.',
+        features: ['Multi-energy imaging', 'Threat detection', 'Fast processing', 'High-resolution images']
+      },
+      {
+        icon: ScanLine,
+        title: 'Cargo Inspection',
+        description: 'Large-scale X-ray systems for cargo and container inspection.',
+        features: ['Large tunnel size', 'Penetration power', 'Material discrimination', 'Automated detection']
+      },
+      {
+        icon: ScanLine,
+        title: 'Walk-Through Metal Detectors',
+        description: 'Efficient and safe metal detection for personnel screening.',
+        features: ['Multi-zone detection', 'Adjustable sensitivity', 'Safe for pacemakers', 'Fast throughput']
+      },
+      {
+        icon: ScanLine,
+        title: 'Explosive & Narcotics Detection',
+        description: 'Advanced trace detection systems for explosives and narcotics.',
+        features: ['Non-radioactive technology', 'Dual-mode detection', '8-second analysis', 'High sensitivity']
+      }
     ]
   }
 ];
-
-const iconMap: Record<string, any> = {
-  Camera,
-  Shield,
-  DoorOpen,
-  Server,
-  Wrench,
-  Wifi,
-  Banknote,
-  Printer,
-};
 ---
 
 <Layout
   title="Services - OptimuxSolutions"
-  description="Discover our IT services: servers, video surveillance, access control and technology maintenance for businesses."
+  description="Complete and innovative IT solutions to support your digital transformation and optimize your performance."
 >
   <Header />
 
   <main class="flex-1">
     <!-- Hero Section -->
-    <section class="relative py-24 md:py-32 overflow-hidden">
-      <!-- Background with brand blue -->
-      <div class="absolute inset-0 bg-[#1c6cb1]">
-        <div class="absolute inset-0">
-          <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <pattern id="hero-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.1"/>
-              </pattern>
-              <pattern id="hero-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1" fill="#ffffff" opacity="0.15"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#hero-grid)"/>
-            <rect width="100%" height="100%" fill="url(#hero-dots)"/>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Decorative elements -->
-      <div class="absolute top-0 right-0 w-96 h-96 bg-[#5a9fd4]/30 rounded-full blur-[120px]"></div>
-      <div class="absolute bottom-0 left-0 w-80 h-80 bg-[#155a94]/50 rounded-full blur-[100px]"></div>
-
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl">
-          <!-- Badge -->
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
-            <span class="w-2 h-2 bg-white rounded-full"></span>
-            <span class="text-sm font-medium" style="color: rgba(255,255,255,0.9);">What We Do</span>
-          </div>
-
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="color: white;">
+    <section class="bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6" style="color: white;">
             Our Services
           </h1>
-          <p class="text-lg md:text-xl leading-relaxed" style="color: rgba(255,255,255,0.85);">
-            Comprehensive IT and security solutions tailored to your business needs. From surveillance to network infrastructure, we've got you covered.
+          <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-10 leading-relaxed">
+            Complete and innovative IT solutions to support your digital transformation and optimize your performance.
           </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/contact"
+              class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg"
+            >
+              Get a Quote
+              <ArrowRight class="w-5 h-5" />
+            </a>
+            <a
+              href="#services"
+              class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-xl font-bold text-lg transition-all"
+            >
+              Explore Services
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Services Quick Nav -->
-    <section class="bg-white border-b border-slate-100 sticky top-20 z-40">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex overflow-x-auto py-4 gap-2 scrollbar-hide">
-          {services.map((service) => {
-            const IconComponent = iconMap[service.icon];
-            return (
-              <a
-                href={service.link}
-                class="flex items-center gap-2 px-4 py-2 bg-slate-50 hover:bg-primary/10 rounded-lg whitespace-nowrap transition-colors group"
-              >
-                <IconComponent class="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" />
-                <span class="text-sm font-medium text-slate-600 group-hover:text-primary transition-colors">{service.title}</span>
-              </a>
-            );
-          })}
-        </div>
-      </div>
-    </section>
+    <!-- Services Categories -->
+    {allServices.map((category, categoryIndex) => (
+      <section id={categoryIndex === 0 ? 'services' : undefined} class={categoryIndex % 2 === 0 ? 'py-24 bg-white' : 'py-24 bg-gradient-to-br from-slate-50 to-blue-50'}>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Category Header -->
+          <div class="text-center mb-16">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-900 rounded-2xl mb-6 shadow-xl">
+              <category.icon class="w-10 h-10 text-white" />
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">{category.category}</h2>
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">{category.description}</p>
+          </div>
 
-    <!-- Services List -->
-    <section class="bg-slate-50 bg-pattern-dots">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="divide-y divide-slate-200">
-          {services.map((service, index) => {
-            const IconComponent = iconMap[service.icon];
-            const isReversed = index % 2 !== 0;
+          <!-- Category Image -->
+          {category.image && (
+            <div class="mb-12 rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">
+              <img src={category.image} alt={category.category} class="w-full h-80 object-cover" />
+            </div>
+          )}
 
-            return (
-              <div id={service.id} class="scroll-mt-40 section-padding">
-                <div class={`flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-16 items-center`}>
-                  <!-- Visual -->
-                  <div class="lg:w-1/2">
-                    <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200/50 group">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        class="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent"></div>
-
-                      <!-- Service number badge -->
-                      <div class="absolute top-6 left-6 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg">
-                        <span class="text-sm font-bold text-primary">0{index + 1}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Content -->
-                  <div class="lg:w-1/2">
-                    <!-- Icon and badge -->
-                    <div class="flex items-center gap-4 mb-6">
-                      <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center">
-                        <IconComponent class="w-7 h-7 text-primary" />
-                      </div>
-                      <div class="h-px bg-slate-200 flex-1"></div>
-                    </div>
-
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                      {service.title}
-                    </h2>
-                    <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                      {service.description}
-                    </p>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                      {service.features.map((feature) => (
-                        <div class="flex items-center gap-3">
-                          <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                            <Check class="w-4 h-4 text-primary" />
-                          </div>
-                          <span class="text-slate-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <a
-                      href={service.link}
-                      class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 group"
-                    >
-                      Learn More
-                      <ArrowRight class="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                    </a>
-                  </div>
+          <!-- Services Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {category.services.map((service) => (
+              <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-slate-100 group">
+                <div class="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mb-6 group-hover:from-blue-600 group-hover:to-blue-900 transition-all">
+                  <service.icon class="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
                 </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">{service.title}</h3>
+                <p class="text-slate-600 leading-relaxed mb-6">{service.description}</p>
+                <ul class="space-y-2">
+                  {service.features.map((feature) => (
+                    <li class="flex items-center gap-2 text-sm text-slate-600">
+                      <Check class="w-4 h-4 text-blue-600 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    ))}
 
     <!-- CTA Section -->
     <CTASection
-      title="Need any of these services?"
-      subtitle="Get in touch with our team to discuss your requirements and get a customized solution."
-      buttonText="Contact Us"
+      title="Need a Custom Solution?"
+      subtitle="We create custom solutions perfectly tailored to your specific needs and industry"
+      buttonText="Contact Our Experts"
     />
   </main>
 
   <Footer />
 </Layout>
-
-<style>
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-</style>

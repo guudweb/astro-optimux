@@ -65,61 +65,37 @@ const applications = [
 
   <main class="flex-1">
     <!-- Hero Section -->
-    <section class="relative py-20 md:py-28 overflow-hidden">
-      <div class="absolute inset-0 bg-[#1c6cb1]">
-        <div class="absolute inset-0">
-          <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <pattern id="hero-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.1"/>
-              </pattern>
-              <pattern id="hero-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1" fill="#ffffff" opacity="0.15"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#hero-grid)"/>
-            <rect width="100%" height="100%" fill="url(#hero-dots)"/>
-          </svg>
-        </div>
-      </div>
-
-      <div class="absolute top-0 right-0 w-96 h-96 bg-[#5a9fd4]/30 rounded-full blur-[120px]"></div>
-      <div class="absolute bottom-0 left-0 w-80 h-80 bg-[#155a94]/50 rounded-full blur-[100px]"></div>
-
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <a href="/services" class="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
+            <a href="/services" class="inline-flex items-center gap-2 text-blue-200 hover:text-white mb-6 transition-colors">
               <ArrowRight class="w-4 h-4 rotate-180" />
               <span class="text-sm font-medium">Back to Services</span>
             </a>
 
-            <div class="flex items-center gap-4 mb-6">
-              <div class="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center">
-                <DoorOpen class="w-8 h-8 text-white" />
-              </div>
-              <div class="h-px bg-white/20 flex-1"></div>
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-900 rounded-2xl mb-6 shadow-xl">
+              <DoorOpen class="w-10 h-10 text-white" />
             </div>
 
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="color: white;">
-              Access<br/>Control
+              Access Control
             </h1>
-            <p class="text-lg md:text-xl leading-relaxed mb-8" style="color: rgba(255,255,255,0.85);">
+            <p class="text-xl leading-relaxed mb-8" style="color: rgba(191, 219, 254, 1);">
               Control who enters your facilities and when with advanced biometric, card-based, and smart lock systems. Complete visibility and security for your premises.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4">
               <a
                 href="/contact"
-                class="inline-flex items-center justify-center gap-2 bg-white hover:bg-white/90 text-[#1c6cb1] px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg"
+                class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg"
               >
                 Get a Quote
                 <ArrowRight class="w-5 h-5" />
               </a>
               <a
                 href="#features"
-                class="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 px-8 py-4 rounded-xl font-bold text-lg transition-all"
-                style="color: white;"
+                class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-xl font-bold text-lg transition-all"
               >
                 Learn More
               </a>
@@ -127,51 +103,8 @@ const applications = [
           </div>
 
           <div class="relative">
-            <div class="aspect-[4/3] rounded-3xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20">
-              <svg class="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="access-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.1"/>
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#access-grid)"/>
-
-                <!-- Door and Lock Icon -->
-                <g transform="translate(140, 50)">
-                  <!-- Door frame -->
-                  <rect x="20" y="10" width="80" height="140" rx="4" fill="#ffffff" opacity="0.1" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
-                  <!-- Door panel -->
-                  <rect x="30" y="20" width="60" height="120" rx="2" fill="#ffffff" opacity="0.15"/>
-                  <!-- Card reader -->
-                  <rect x="75" y="70" width="12" height="30" rx="2" fill="#ffffff" opacity="0.25"/>
-                  <!-- LED indicator -->
-                  <circle cx="81" cy="78" r="3" fill="#22c55e" opacity="0.6"/>
-                  <!-- Handle -->
-                  <rect x="70" y="85" width="8" height="3" rx="1" fill="#ffffff" opacity="0.3"/>
-                </g>
-
-                <circle cx="80" cy="80" r="30" fill="#5a9fd4" opacity="0.2"/>
-                <circle cx="320" cy="220" r="50" fill="#ffffff" opacity="0.1"/>
-
-                <!-- Access granted text -->
-                <text x="280" y="45" fill="#22c55e" opacity="0.7" font-size="11" font-family="sans-serif">ACCESS</text>
-                <text x="275" y="58" fill="#22c55e" opacity="0.7" font-size="11" font-family="sans-serif">GRANTED</text>
-              </svg>
-
-              <div class="absolute bottom-6 left-6 right-6 flex gap-4">
-                <div class="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg flex-1">
-                  <p class="text-2xl font-bold text-[#1c6cb1]">Multi</p>
-                  <p class="text-xs text-slate-600">Factor Auth</p>
-                </div>
-                <div class="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg flex-1">
-                  <p class="text-2xl font-bold text-[#1c6cb1]">Real</p>
-                  <p class="text-xs text-slate-600">Time Logs</p>
-                </div>
-                <div class="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg flex-1">
-                  <p class="text-2xl font-bold text-[#1c6cb1]">Cloud</p>
-                  <p class="text-xs text-slate-600">Connected</p>
-                </div>
-              </div>
+            <div class="rounded-2xl overflow-hidden shadow-2xl">
+              <img src="/images/electronic-security.png" alt="Access Control" class="w-full h-80 object-cover" />
             </div>
           </div>
         </div>
@@ -179,28 +112,24 @@ const applications = [
     </section>
 
     <!-- Features Grid -->
-    <section id="features" class="section-padding bg-slate-50 bg-pattern-curves">
+    <section id="features" class="py-24 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
-            <span class="w-2 h-2 rounded-full bg-primary"></span>
-            <span class="text-sm font-semibold text-primary">Features</span>
-          </div>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+          <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Smart Access Solutions
           </h2>
-          <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Our access control systems combine security with convenience for seamless facility management.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature) => (
-            <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 group">
-              <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all">
-                <feature.icon class="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-slate-100 group">
+              <div class="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mb-6 group-hover:from-blue-600 group-hover:to-blue-900 transition-all">
+                <feature.icon class="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
               </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+              <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">{feature.title}</h3>
               <p class="text-slate-600 leading-relaxed">{feature.description}</p>
             </div>
           ))}
@@ -209,23 +138,19 @@ const applications = [
     </section>
 
     <!-- Specifications & Applications -->
-    <section class="section-padding bg-white">
+    <section class="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
-              <span class="w-2 h-2 rounded-full bg-primary"></span>
-              <span class="text-sm font-semibold text-primary">Hardware</span>
-            </div>
             <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
               System Components
             </h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {specifications.map((spec) => (
-                <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-xl">
-                  <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Check class="w-5 h-5 text-primary" />
+                <div class="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm">
+                  <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Check class="w-5 h-5 text-blue-600" />
                   </div>
                   <span class="text-slate-700 font-medium">{spec}</span>
                 </div>
@@ -234,17 +159,13 @@ const applications = [
           </div>
 
           <div>
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
-              <span class="w-2 h-2 rounded-full bg-primary"></span>
-              <span class="text-sm font-semibold text-primary">Applications</span>
-            </div>
             <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
               Where We Install
             </h2>
 
             <div class="space-y-4">
               {applications.map((app) => (
-                <div class="p-6 bg-slate-50 rounded-2xl hover:bg-primary/5 transition-colors">
+                <div class="p-6 bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow">
                   <h3 class="text-lg font-bold text-slate-900 mb-2">{app.title}</h3>
                   <p class="text-slate-600">{app.description}</p>
                 </div>
@@ -256,14 +177,10 @@ const applications = [
     </section>
 
     <!-- Process Section -->
-    <section class="section-padding bg-slate-50 bg-pattern-dots">
+    <section class="py-24 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
-            <span class="w-2 h-2 rounded-full bg-primary"></span>
-            <span class="text-sm font-semibold text-primary">Our Process</span>
-          </div>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+          <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             How We Work
           </h2>
         </div>
@@ -276,13 +193,13 @@ const applications = [
             { step: "04", title: "Train", desc: "User training and ongoing support" }
           ].map((item, index) => (
             <div class="relative">
-              <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 text-center relative z-10">
-                <div class="text-5xl font-black text-primary/10 mb-4">{item.step}</div>
+              <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 text-center relative z-10 hover:shadow-xl transition-shadow">
+                <div class="text-5xl font-black text-blue-100 mb-4">{item.step}</div>
                 <h3 class="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
                 <p class="text-slate-600 text-sm">{item.desc}</p>
               </div>
               {index < 3 && (
-                <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-primary/20 z-0"></div>
+                <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-blue-200 z-0"></div>
               )}
             </div>
           ))}
@@ -294,23 +211,22 @@ const applications = [
     <RecentProjects category="access" />
 
     <!-- CTA Section -->
-    <section class="section-padding bg-[#1c6cb1] relative overflow-hidden">
-      <div class="absolute inset-0 bg-pattern-shields opacity-10"></div>
-      <div class="absolute top-0 right-0 w-96 h-96 bg-[#5a9fd4]/30 rounded-full blur-[120px]"></div>
+    <section class="py-24 bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 text-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==');"></div>
+      </div>
 
-      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6" style="color: white;">
-          Secure Your Premises Today
-        </h2>
-        <p class="text-lg mb-8 max-w-2xl mx-auto" style="color: rgba(255,255,255,0.85);">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6" style="color: white;">Secure Your Premises Today</h2>
+        <p class="text-xl mb-10 text-blue-100 leading-relaxed">
           Get in touch with our access control experts to design the perfect solution for your facility.
         </p>
         <a
           href="/contact"
-          class="inline-flex items-center gap-2 bg-white hover:bg-white/90 text-[#1c6cb1] px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg group"
+          class="inline-flex items-center gap-2 bg-white text-blue-900 hover:bg-blue-50 px-10 py-5 text-lg font-bold rounded-xl shadow-2xl hover:shadow-white/30 transition-all group"
         >
           Contact Us Today
-          <ArrowRight class="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          <ArrowRight class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </a>
       </div>
     </section>

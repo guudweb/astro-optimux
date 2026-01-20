@@ -16,6 +16,35 @@ const {
   showCTA = true,
   compact = false
 } = Astro.props;
+
+// Slides para el Hero Slider
+const heroSlides = [
+  {
+    image: '/images/electronic-security.png',
+    title: 'Electronic Security',
+    subtitle: 'Protect your business with advanced CCTV, access control, and alarm systems'
+  },
+  {
+    image: '/images/it-infrastructure.png',
+    title: 'IT Infrastructure',
+    subtitle: 'Design and deployment of robust network and system infrastructures'
+  },
+  {
+    image: '/images/cybersecurity.png',
+    title: 'Cybersecurity',
+    subtitle: 'Complete protection of your systems and data against cyber threats'
+  },
+  {
+    image: '/images/software-dev.png',
+    title: 'Software Development',
+    subtitle: 'Custom web and mobile applications tailored to your business needs'
+  },
+  {
+    image: '/images/equipment-services.png',
+    title: 'Equipment & Services',
+    subtitle: 'IT equipment supply and managed services for your infrastructure'
+  }
+];
 ---
 
 {compact ? (
@@ -41,30 +70,58 @@ const {
     </div>
   </section>
 ) : (
-  <!-- Full Hero for home page -->
+  <!-- Full Hero with Slider for home page -->
   <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 text-white overflow-hidden">
-    <!-- Background Image -->
-    <div class="absolute inset-0 opacity-20">
-      <img
-        src="/images/hero-bg.png"
-        alt=""
-        class="w-full h-full object-cover"
-      />
+    <!-- Slides Container (Background Images) -->
+    <div id="hero-slider" class="absolute inset-0">
+      {heroSlides.map((slide, index) => (
+        <div
+          class={`hero-slide absolute inset-0 transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+          data-index={index}
+        >
+          <!-- Background Image -->
+          <div class="absolute inset-0 opacity-20">
+            <img
+              src={slide.image}
+              alt={slide.title}
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      ))}
     </div>
+
+    <!-- Gradient Overlay -->
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/50 to-blue-950"></div>
 
     <!-- Content -->
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-      <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8" style="color: white;">
-        {title}
-        <span class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300">
-          {subtitle}
-        </span>
-      </h1>
+      <!-- Slide Texts Container -->
+      <div id="hero-texts" class="relative">
+        {heroSlides.map((slide, index) => (
+          <div
+            class={`hero-text absolute inset-0 transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+            data-index={index}
+          >
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8" style="color: white;">
+              {slide.title}
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 text-blue-100 max-w-3xl mx-auto leading-relaxed">
+              {slide.subtitle}
+            </p>
+          </div>
+        ))}
 
-      <p class="text-xl md:text-2xl mb-10 text-blue-100 max-w-3xl mx-auto leading-relaxed">
-        {description}
-      </p>
+        <!-- Invisible placeholder for height -->
+        <div class="invisible">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8">
+            {heroSlides[0].title}
+          </h1>
+          <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">
+            {heroSlides[0].subtitle}
+          </p>
+        </div>
+      </div>
 
       {showCTA && (
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -83,6 +140,94 @@ const {
           </a>
         </div>
       )}
+
+      <!-- Slide Indicators -->
+      <div class="flex gap-3 justify-center mt-10">
+        {heroSlides.map((_, index) => (
+          <button
+            class={`slide-indicator h-2 rounded-full transition-all duration-300 ${index === 0 ? 'w-12 bg-white' : 'w-6 bg-white/40 hover:bg-white/60'}`}
+            data-slide={index}
+            aria-label={`Go to slide ${index + 1}`}
+          ></button>
+        ))}
+      </div>
     </div>
   </section>
 )}
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    var slides = document.querySelectorAll('.hero-slide');
+    var texts = document.querySelectorAll('.hero-text');
+    var indicators = document.querySelectorAll('.slide-indicator');
+
+    if (slides.length === 0) return;
+
+    var currentSlide = 0;
+    var totalSlides = slides.length;
+    var autoplayInterval = null;
+
+    function showSlide(index) {
+      // Hide all slides (backgrounds)
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('opacity-100');
+        slides[i].classList.add('opacity-0');
+      }
+
+      // Hide all texts
+      for (var t = 0; t < texts.length; t++) {
+        texts[t].classList.remove('opacity-100');
+        texts[t].classList.add('opacity-0', 'pointer-events-none');
+      }
+
+      // Update indicators
+      for (var j = 0; j < indicators.length; j++) {
+        indicators[j].classList.remove('w-12', 'bg-white');
+        indicators[j].classList.add('w-6', 'bg-white/40');
+      }
+
+      // Show current slide (background)
+      slides[index].classList.remove('opacity-0');
+      slides[index].classList.add('opacity-100');
+
+      // Show current text
+      if (texts[index]) {
+        texts[index].classList.remove('opacity-0', 'pointer-events-none');
+        texts[index].classList.add('opacity-100');
+      }
+
+      // Update current indicator
+      if (indicators[index]) {
+        indicators[index].classList.remove('w-6', 'bg-white/40');
+        indicators[index].classList.add('w-12', 'bg-white');
+      }
+
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      var next = (currentSlide + 1) % totalSlides;
+      showSlide(next);
+    }
+
+    function startAutoplay() {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+      }
+      autoplayInterval = setInterval(nextSlide, 4000);
+    }
+
+    // Add click handlers to indicators
+    for (var k = 0; k < indicators.length; k++) {
+      (function(index) {
+        indicators[index].addEventListener('click', function() {
+          showSlide(index);
+          startAutoplay();
+        });
+      })(k);
+    }
+
+    // Start autoplay
+    startAutoplay();
+  });
+</script>
