@@ -182,8 +182,7 @@ const heroSlides = [
     var currentSlide = 0;
     var totalSlides = slides.length;
     var autoplayTimeout = null;
-    var FIRST_SLIDE_DURATION = 7000; // 7 seconds for first slide
-    var OTHER_SLIDE_DURATION = 4000; // 4 seconds for other slides
+    var SLIDE_DURATION = 7000; // 7 seconds for all slides
 
     function showSlide(index) {
       // Hide all slides (backgrounds)
@@ -233,9 +232,7 @@ const heroSlides = [
       if (autoplayTimeout) {
         clearTimeout(autoplayTimeout);
       }
-      // First slide gets extra time
-      var duration = currentSlide === 0 ? FIRST_SLIDE_DURATION : OTHER_SLIDE_DURATION;
-      autoplayTimeout = setTimeout(nextSlide, duration);
+      autoplayTimeout = setTimeout(nextSlide, SLIDE_DURATION);
     }
 
     // Add click handlers to indicators
