@@ -1,22 +1,26 @@
 ---
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-astro';
+import { getLocale, useTranslations, getLocalizedPath } from '../i18n/utils';
+
+const locale = getLocale(Astro.url);
+const t = useTranslations(locale);
 
 const currentYear = new Date().getFullYear();
 
 const quickLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
-  { href: '/contact', label: 'Contact' },
+  { href: getLocalizedPath('/', locale), label: t('nav.home') },
+  { href: getLocalizedPath('/about', locale), label: t('nav.about') },
+  { href: getLocalizedPath('/services', locale), label: t('nav.services') },
+  { href: getLocalizedPath('/contact', locale), label: t('nav.contact') },
 ];
 
 const services = [
-  { href: '/services', label: 'Consulting & Audit' },
-  { href: '/services/servers', label: 'IT Infrastructure' },
-  { href: '/services', label: 'Cybersecurity' },
-  { href: '/services/cctv', label: 'Electronic Security' },
-  { href: '/services/maintenance', label: 'Equipment & Managed Services' },
-  { href: '/services/telecom', label: 'Telecommunications' },
+  { href: getLocalizedPath('/services', locale), label: 'Consulting & Audit' },
+  { href: getLocalizedPath('/services/servers', locale), label: 'IT Infrastructure' },
+  { href: getLocalizedPath('/services', locale), label: 'Cybersecurity' },
+  { href: getLocalizedPath('/services/cctv', locale), label: 'Electronic Security' },
+  { href: getLocalizedPath('/services/maintenance', locale), label: 'Equipment & Managed Services' },
+  { href: getLocalizedPath('/services/telecom', locale), label: 'Telecommunications' },
 ];
 
 const contactInfo = {
@@ -45,7 +49,7 @@ const contactInfo = {
           </div>
         </div>
         <p class="text-sm mb-6 leading-relaxed text-slate-400">
-          Your trusted partner for innovative IT solutions. We transform your technology challenges into growth opportunities.
+          {t('footer.description')}
         </p>
         <div class="flex space-x-4">
           <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors" aria-label="Facebook">
@@ -65,7 +69,7 @@ const contactInfo = {
 
       <!-- Quick Links -->
       <div>
-        <h3 class="font-bold text-lg mb-6 border-b-2 border-blue-600 pb-2 inline-block" style="color: white;">Quick Links</h3>
+        <h3 class="font-bold text-lg mb-6 border-b-2 border-blue-600 pb-2 inline-block" style="color: white;">{t('footer.quickLinks')}</h3>
         <ul class="space-y-3">
           {quickLinks.map((link) => (
             <li>
@@ -80,7 +84,7 @@ const contactInfo = {
 
       <!-- Services -->
       <div>
-        <h3 class="font-bold text-lg mb-6 border-b-2 border-blue-600 pb-2 inline-block" style="color: white;">Our Services</h3>
+        <h3 class="font-bold text-lg mb-6 border-b-2 border-blue-600 pb-2 inline-block" style="color: white;">{t('footer.services')}</h3>
         <ul class="space-y-3">
           {services.map((service) => (
             <li>
@@ -95,7 +99,7 @@ const contactInfo = {
 
       <!-- Contact Info -->
       <div>
-        <h3 class="font-bold text-lg mb-6 border-b-2 border-blue-600 pb-2 inline-block" style="color: white;">Contact Us</h3>
+        <h3 class="font-bold text-lg mb-6 border-b-2 border-blue-600 pb-2 inline-block" style="color: white;">{t('nav.contact')}</h3>
         <ul class="space-y-4">
           <li class="flex items-start space-x-3">
             <MapPin class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
@@ -119,7 +123,7 @@ const contactInfo = {
 
     <div class="border-t border-slate-700 mt-12 pt-8 text-center">
       <p class="text-sm text-slate-400">
-        &copy; {currentYear} OptimuxSolutions. All rights reserved. | <a href="#" class="hover:text-blue-400 transition-colors">Privacy Policy</a> | <a href="#" class="hover:text-blue-400 transition-colors">Terms of Service</a>
+        &copy; {currentYear} OptimuxSolutions. {t('footer.copyright').replace('© 2024 OptimuxSolutions. ', '')} | <a href="#" class="hover:text-blue-400 transition-colors">{t('footer.privacy')}</a> | <a href="#" class="hover:text-blue-400 transition-colors">{t('footer.terms')}</a>
       </p>
     </div>
   </div>

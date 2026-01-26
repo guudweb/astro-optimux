@@ -1,5 +1,6 @@
 ---
 import { ArrowRight } from 'lucide-astro';
+import { getLocale, useTranslations, getLocalizedPath } from '../i18n/utils';
 
 interface Props {
   title?: string;
@@ -9,10 +10,13 @@ interface Props {
   compact?: boolean;
 }
 
+const locale = getLocale(Astro.url);
+const t = useTranslations(locale);
+
 const {
-  title = 'Innovative IT Solutions for',
-  subtitle = 'Your Digital Transformation',
-  description = 'Complete expertise in infrastructure, cybersecurity, software development, and IT services to propel your business to success.',
+  title = t('hero.slide1.tagline'),
+  subtitle = t('hero.slide1.taglineSecond'),
+  description = t('hero.slide1.subtitle'),
   showCTA = true,
   compact = false
 } = Astro.props;
@@ -21,24 +25,24 @@ const {
 const heroSlides = [
   {
     image: '/images/hero-bg.png',
-    mainSlogan: 'Optimize Today, Perform Tomorrow',
-    tagline: 'Innovative IT Solutions for Your Digital Transformation',
-    subtitle: 'Complete expertise in infrastructure, cybersecurity, software development, and IT services to propel your business to success.'
+    mainSlogan: `${t('hero.slide1.mainTitle')} ${t('hero.slide1.mainTitleSecond')}`,
+    tagline: `${t('hero.slide1.tagline')} ${t('hero.slide1.taglineSecond')}`,
+    subtitle: t('hero.slide1.subtitle')
   },
   {
     image: '/images/it-infrastructure.png',
-    title: 'Integrated and Extended Solutions',
-    subtitle: 'How can businesses overcome the challenges of complex IT environments? Radical simplicity is the answer.'
+    title: t('hero.slide2.title'),
+    subtitle: t('hero.slide2.subtitle')
   },
   {
     image: '/images/electronic-security.png',
-    title: 'Quality Service and After-Sales Support',
-    subtitle: 'We stand behind every solution we deliver with dedicated support and maintenance services.'
+    title: t('hero.slide3.title'),
+    subtitle: t('hero.slide3.subtitle')
   },
   {
     image: '/images/equipment-services.png',
-    title: 'IT Equipment Supply and Procurement',
-    subtitle: 'Do you need IT equipment procurement for your company? Optimux offers complete IT equipment procurement services. We offer no hassle warranties and don\'t require long-term contracts.'
+    title: t('hero.slide4.title'),
+    subtitle: t('hero.slide4.subtitle')
   }
 ];
 ---
@@ -99,18 +103,16 @@ const heroSlides = [
             class={`hero-text absolute inset-0 transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             data-index={index}
           >
-            {slide.mainSlogan ? (
+            {index === 0 ? (
               <>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 whitespace-nowrap">
-                  <span style="color: white;">Optimize Today,</span>{" "}
-                  <span class="text-blue-400">Perform Tomorrow</span>
+                  <span style="color: white;">{t('hero.slide1.mainTitle')}</span>{" "}
+                  <span class="text-blue-400">{t('hero.slide1.mainTitleSecond')}</span>
                 </h1>
-                {slide.tagline && (
-                  <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
-                    <span style="color: white;">Innovative IT Solutions for</span>{" "}
-                    <span style="color: white;">Your Digital Transformation</span>
-                  </h2>
-                )}
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
+                  <span style="color: white;">{t('hero.slide1.tagline')}</span>{" "}
+                  <span style="color: white;">{t('hero.slide1.taglineSecond')}</span>
+                </h2>
               </>
             ) : (
               <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6" style="color: white;">
@@ -126,15 +128,15 @@ const heroSlides = [
         <!-- Invisible placeholder for height -->
         <div class="invisible">
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 whitespace-nowrap">
-            <span style="color: white;">Optimize Today,</span>{" "}
-            <span class="text-blue-400">Perform Tomorrow</span>
+            <span style="color: white;">{t('hero.slide1.mainTitle')}</span>{" "}
+            <span class="text-blue-400">{t('hero.slide1.mainTitleSecond')}</span>
           </h1>
           <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
-            <span style="color: white;">Innovative IT Solutions for</span>{" "}
-            <span style="color: white;">Your Digital Transformation</span>
+            <span style="color: white;">{t('hero.slide1.tagline')}</span>{" "}
+            <span style="color: white;">{t('hero.slide1.taglineSecond')}</span>
           </h2>
           <p class="text-lg md:text-xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            {heroSlides[0].subtitle}
+            {t('hero.slide1.subtitle')}
           </p>
         </div>
       </div>
@@ -142,17 +144,17 @@ const heroSlides = [
       {showCTA && (
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/services"
+            href={getLocalizedPath('/services', locale)}
             class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-10 py-5 text-lg font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/50 transition-all"
           >
-            Discover Our Services
+            {t('hero.learnMore')}
             <ArrowRight class="w-5 h-5" />
           </a>
           <a
-            href="/contact"
+            href={getLocalizedPath('/contact', locale)}
             class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-900 px-10 py-5 text-lg font-semibold rounded-xl shadow-2xl transition-all"
           >
-            Get a Quote
+            {t('nav.getQuote')}
           </a>
         </div>
       )}

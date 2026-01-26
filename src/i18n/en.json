@@ -1,0 +1,173 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "getQuote": "Get a Quote",
+    "whatWeDo": "What We Do",
+    "itInfrastructure": "IT Infrastructure",
+    "physicalSecurity": "Physical Security",
+    "webEmail": "Web & Email"
+  },
+  "hero": {
+    "slide1": {
+      "mainTitle": "Optimize Today,",
+      "mainTitleSecond": "Perform Tomorrow",
+      "tagline": "Innovative IT Solutions for",
+      "taglineSecond": "Your Digital Transformation",
+      "subtitle": "Complete expertise in infrastructure, cybersecurity, software development, and IT services to propel your business to success."
+    },
+    "slide2": {
+      "title": "Integrated and Extended Solutions",
+      "subtitle": "How can businesses overcome the challenges of complex IT environments? Radical simplicity is the answer."
+    },
+    "slide3": {
+      "title": "Quality Service and After-Sales Support",
+      "subtitle": "We stand behind every solution we deliver with dedicated support and maintenance services."
+    },
+    "slide4": {
+      "title": "IT Equipment Supply and Procurement",
+      "subtitle": "Do you need IT equipment procurement for your company? Optimux offers complete IT equipment procurement services. We offer no hassle warranties and don't require long-term contracts."
+    },
+    "learnMore": "Discover Our Services",
+    "getStarted": "Get Started"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive technology solutions for modern businesses",
+    "viewDetails": "View Details",
+    "cctv": {
+      "title": "CCTV Video Surveillance",
+      "description": "State-of-the-art surveillance and security systems"
+    },
+    "access": {
+      "title": "Access Control",
+      "description": "Secure building and zone access management"
+    },
+    "alarm": {
+      "title": "Alarm & Fire Systems",
+      "description": "Comprehensive emergency detection and response"
+    },
+    "servers": {
+      "title": "IT Infrastructure",
+      "description": "Enterprise server and network solutions"
+    },
+    "maintenance": {
+      "title": "Managed Services & Support",
+      "description": "Expert maintenance and ongoing support"
+    },
+    "telecom": {
+      "title": "Telecommunications",
+      "description": "Modern communication systems"
+    },
+    "cashHandling": {
+      "title": "Cash Handling Solutions",
+      "description": "Secure cash processing systems"
+    },
+    "printing": {
+      "title": "Printer Leasing & Rentals",
+      "description": "Flexible printing solutions"
+    },
+    "xrayScanner": {
+      "title": "X-Ray Inspection Machines",
+      "description": "Advanced security and inspection equipment"
+    }
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Us?",
+    "subtitle": "Your trusted technology partner",
+    "quality": {
+      "title": "Quality Guaranteed",
+      "description": "We deliver top-tier solutions with the highest standards of quality"
+    },
+    "innovation": {
+      "title": "Innovation",
+      "description": "Stay ahead with the latest technologies and solutions"
+    },
+    "customerFocus": {
+      "title": "Customer Focus",
+      "description": "Your needs drive our solutions and services"
+    },
+    "reliability": {
+      "title": "Reliability",
+      "description": "24/7 support and maintenance to ensure uptime"
+    }
+  },
+  "clients": {
+    "title": "Our Satisfied Clients",
+    "subtitle": "Trusted by leading organizations across Equatorial Guinea"
+  },
+  "cta": {
+    "title": "Ready to Transform Your Technology?",
+    "subtitle": "Contact our team today for a free consultation",
+    "button": "Contact Us Today"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We're here to help with your technology needs",
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "company": "Company",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Error sending message. Please try again."
+    },
+    "info": {
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "hours": "Business Hours"
+    }
+  },
+  "about": {
+    "title": "About OptimuxSolutions",
+    "subtitle": "Your Trusted Technology Partner",
+    "mission": {
+      "title": "Our Mission",
+      "content": "To provide innovative and reliable technology solutions that empower businesses to achieve their goals and stay competitive in the digital landscape."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "To be the leading provider of comprehensive technology solutions in the region, recognized for excellence, innovation, and exceptional customer service."
+    },
+    "values": {
+      "title": "Our Values",
+      "integrity": "Integrity",
+      "excellence": "Excellence",
+      "innovation": "Innovation",
+      "partnership": "Partnership"
+    },
+    "sectors": {
+      "title": "Sectors We Serve",
+      "banking": "Banking & Finance",
+      "retail": "Retail",
+      "healthcare": "Healthcare",
+      "education": "Education",
+      "government": "Government",
+      "hospitality": "Hospitality"
+    }
+  },
+  "footer": {
+    "description": "Your trusted partner for innovative IT solutions. We transform your technology challenges into growth opportunities.",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "followUs": "Follow Us",
+    "copyright": "© 2024 OptimuxSolutions. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "readMore": "Read More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "viewAll": "View All",
+    "backToHome": "Back to Home"
+  }
+}

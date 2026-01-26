@@ -1,26 +1,30 @@
 ---
 import { Zap, Award, Users, TrendingUp } from 'lucide-astro';
+import { getLocale, useTranslations } from '../i18n/utils';
+
+const locale = getLocale(Astro.url);
+const t = useTranslations(locale);
 
 const whyChooseUs = [
   {
     icon: Zap,
-    title: 'Responsiveness',
-    description: 'Fast intervention and effective solutions for all your IT needs'
+    title: t('whyChooseUs.quality.title'),
+    description: t('whyChooseUs.quality.description')
   },
   {
     icon: Award,
-    title: 'Excellence',
-    description: 'Professional certifications and recognized expertise in the field'
+    title: t('whyChooseUs.innovation.title'),
+    description: t('whyChooseUs.innovation.description')
   },
   {
     icon: Users,
-    title: 'Support',
-    description: 'Personalized support and continuous training for your teams'
+    title: t('whyChooseUs.customerFocus.title'),
+    description: t('whyChooseUs.customerFocus.description')
   },
   {
     icon: TrendingUp,
-    title: 'Innovation',
-    description: 'Cutting-edge technologies to stay competitive in the market'
+    title: t('whyChooseUs.reliability.title'),
+    description: t('whyChooseUs.reliability.description')
   }
 ];
 ---
@@ -28,9 +32,9 @@ const whyChooseUs = [
 <section class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Why Choose Us</h2>
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">{t('whyChooseUs.title')}</h2>
       <p class="text-xl text-slate-600 max-w-3xl mx-auto">
-        Excellence, innovation, and your satisfaction at the heart of our priorities
+        {t('whyChooseUs.subtitle')}
       </p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

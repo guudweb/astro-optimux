@@ -1,5 +1,9 @@
 ---
 import { ArrowRight } from 'lucide-astro';
+import { getLocale, useTranslations, getLocalizedPath } from '../i18n/utils';
+
+const locale = getLocale(Astro.url);
+const t = useTranslations(locale);
 
 interface Props {
   title?: string;
@@ -9,10 +13,10 @@ interface Props {
 }
 
 const {
-  title = "Ready to Transform Your Business?",
-  subtitle = "Let's discuss your needs and discover how our IT solutions can drive your growth",
-  buttonText = "Contact Us Now",
-  buttonHref = "/contact"
+  title = t('cta.title'),
+  subtitle = t('cta.subtitle'),
+  buttonText = t('cta.button'),
+  buttonHref = getLocalizedPath('/contact', locale)
 } = Astro.props;
 ---
 

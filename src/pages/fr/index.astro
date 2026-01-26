@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import ServicesGrid from '../../components/ServicesGrid.astro';
+import WhyChooseUs from '../../components/WhyChooseUs.astro';
+import Clients from '../../components/Clients.astro';
+import CTASection from '../../components/CTASection.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="OptimuxSolutions - Solutions IT Innovantes pour Votre Transformation Numérique">
+  <Header />
+
+  <main class="flex-1">
+    <Hero />
+    <ServicesGrid />
+    <WhyChooseUs />
+    <Clients />
+    <CTASection />
+  </main>
+
+  <Footer />
+</Layout>

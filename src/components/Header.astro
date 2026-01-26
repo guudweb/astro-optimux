@@ -1,84 +1,83 @@
 ---
 import { Menu, X, Globe, ChevronDown, Camera, Shield, DoorOpen, Server, Wrench, Wifi, Banknote, Printer, ScanLine, Search, FileText, Network, Lock, Code, Monitor, Headphones, Cloud } from 'lucide-astro';
+import { getLocale, useTranslations, getLocalizedPath, languages } from '../i18n/utils';
+
+const locale = getLocale(Astro.url);
+const t = useTranslations(locale);
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services', hasDropdown: true },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+  { href: getLocalizedPath('/', locale), label: t('nav.home') },
+  { href: getLocalizedPath('/services', locale), label: t('nav.services'), hasDropdown: true },
+  { href: getLocalizedPath('/about', locale), label: t('nav.about') },
+  { href: getLocalizedPath('/contact', locale), label: t('nav.contact') },
 ];
 
 const serviceCategories = [
   {
     title: 'Consulting & Audit',
     items: [
-      { label: 'Needs Assessment', href: '/services' },
-      { label: 'Specifications', href: '/services' },
-      { label: 'IT Roadmaps', href: '/services' },
-      { label: 'Project Management', href: '/services' }
+      { label: 'Needs Assessment', href: getLocalizedPath('/services', locale) },
+      { label: 'Specifications', href: getLocalizedPath('/services', locale) },
+      { label: 'IT Roadmaps', href: getLocalizedPath('/services', locale) },
+      { label: 'Project Management', href: getLocalizedPath('/services', locale) }
     ]
   },
   {
     title: 'IT Infrastructure',
     items: [
-      { label: 'LAN/WAN/WLAN Networks', href: '/services/servers' },
-      { label: 'Storage & Remote Access', href: '/services/servers' },
-      { label: 'Backup & Recovery', href: '/services/servers' },
-      { label: 'Virtualization', href: '/services/servers' },
-      { label: 'Collaboration Solutions', href: '/services/servers' }
+      { label: 'LAN/WAN/WLAN Networks', href: getLocalizedPath('/services/servers', locale) },
+      { label: 'Storage & Remote Access', href: getLocalizedPath('/services/servers', locale) },
+      { label: 'Backup & Recovery', href: getLocalizedPath('/services/servers', locale) },
+      { label: 'Virtualization', href: getLocalizedPath('/services/servers', locale) },
+      { label: 'Collaboration Solutions', href: getLocalizedPath('/services/servers', locale) }
     ]
   },
   {
     title: 'Cybersecurity',
     items: [
-      { label: 'Firewall & Protection', href: '/services' },
-      { label: 'Antivirus & Anti-malware', href: '/services' },
-      { label: 'MFA Authentication', href: '/services' },
-      { label: 'Security Audits', href: '/services' },
-      { label: 'Penetration Testing', href: '/services' }
+      { label: 'Firewall & Protection', href: getLocalizedPath('/services', locale) },
+      { label: 'Antivirus & Anti-malware', href: getLocalizedPath('/services', locale) },
+      { label: 'MFA Authentication', href: getLocalizedPath('/services', locale) },
+      { label: 'Security Audits', href: getLocalizedPath('/services', locale) },
+      { label: 'Penetration Testing', href: getLocalizedPath('/services', locale) }
     ]
   },
   {
     title: 'Electronic Security',
     items: [
-      { label: 'Video Surveillance', href: '/services/cctv' },
-      { label: 'Access Control', href: '/services/access' },
-      { label: 'Intrusion Detection', href: '/services/alarm' },
-      { label: 'Alarm Systems', href: '/services/alarm' },
-      { label: 'X-Ray Inspection', href: '/services/xray-scanner' }
+      { label: 'Video Surveillance', href: getLocalizedPath('/services/cctv', locale) },
+      { label: 'Access Control', href: getLocalizedPath('/services/access', locale) },
+      { label: 'Intrusion Detection', href: getLocalizedPath('/services/alarm', locale) },
+      { label: 'Alarm Systems', href: getLocalizedPath('/services/alarm', locale) },
+      { label: 'X-Ray Inspection', href: getLocalizedPath('/services/xray-scanner', locale) }
     ]
   },
   {
     title: 'Equipment & Services',
     items: [
-      { label: 'IT Hardware', href: '/services' },
-      { label: 'Managed Services', href: '/services/maintenance' },
-      { label: '24/7 Support', href: '/services/maintenance' },
-      { label: 'Cash Handling', href: '/services/cash-handling' },
-      { label: 'Printer Leasing', href: '/services/printing' }
+      { label: 'IT Hardware', href: getLocalizedPath('/services', locale) },
+      { label: 'Managed Services', href: getLocalizedPath('/services/maintenance', locale) },
+      { label: '24/7 Support', href: getLocalizedPath('/services/maintenance', locale) },
+      { label: 'Cash Handling', href: getLocalizedPath('/services/cash-handling', locale) },
+      { label: 'Printer Leasing', href: getLocalizedPath('/services/printing', locale) }
     ]
   },
   {
     title: 'Telecommunications',
     items: [
-      { label: 'VoIP Solutions', href: '/services/telecom' },
-      { label: 'PBX Systems', href: '/services/telecom' },
-      { label: 'Video Conferencing', href: '/services/telecom' },
-      { label: 'Network Cabling', href: '/services/telecom' },
-      { label: 'Fiber Optics', href: '/services/telecom' }
+      { label: 'VoIP Solutions', href: getLocalizedPath('/services/telecom', locale) },
+      { label: 'PBX Systems', href: getLocalizedPath('/services/telecom', locale) },
+      { label: 'Video Conferencing', href: getLocalizedPath('/services/telecom', locale) },
+      { label: 'Network Cabling', href: getLocalizedPath('/services/telecom', locale) },
+      { label: 'Fiber Optics', href: getLocalizedPath('/services/telecom', locale) }
     ]
   }
 ];
 
-const languages = [
-  { code: 'en', label: 'English', flag: 'EN' },
-  { code: 'es', label: 'Espanol', flag: 'ES' },
-  { code: 'fr', label: 'Francais', flag: 'FR' },
-];
-
 const currentPath = Astro.url.pathname;
 const isServicesActive = currentPath.startsWith('/services');
-const isHomePage = currentPath === '/';
+const isHomePage = currentPath === '/' || currentPath === '/es' || currentPath === '/en' || currentPath === '/fr';
+const currentLocale = languages.find(lang => lang.code === locale);
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
@@ -148,10 +147,10 @@ const isHomePage = currentPath === '/';
                       <!-- View All Services Link -->
                       <div class="mt-8 pt-6 border-t border-slate-100 text-center">
                         <a
-                          href="/services"
+                          href={getLocalizedPath('/services', locale)}
                           class="inline-flex items-center gap-2 text-blue-700 font-semibold hover:text-blue-800 transition-colors"
                         >
-                          View All Services
+                          {t('common.viewAll')} {t('nav.services')}
                           <ChevronDown class="w-4 h-4 rotate-[-90deg]" />
                         </a>
                       </div>
@@ -169,13 +168,44 @@ const isHomePage = currentPath === '/';
             </div>
           ))}
 
+          <!-- Language Switcher -->
+          <div class="relative group">
+            <button
+              type="button"
+              class="nav-link flex items-center space-x-2 font-semibold transition-colors"
+              id="lang-switcher-btn"
+            >
+              <Globe class="w-4 h-4" />
+              <span>{currentLocale?.flag}</span>
+              <ChevronDown class="w-3 h-3" />
+            </button>
+            <div class="absolute right-0 top-full pt-2 w-40 hidden" id="lang-menu">
+              <div class="bg-white rounded-lg shadow-xl p-2 border border-slate-100">
+                {languages.map((lang) => (
+                  <a
+                    href={getLocalizedPath(currentPath.replace(/^\/(en|es|fr)/, ''), lang.code)}
+                    class:list={[
+                      'block px-4 py-2 rounded-md text-sm transition-colors',
+                      lang.code === locale
+                        ? 'bg-blue-50 text-blue-700 font-semibold'
+                        : 'text-slate-700 hover:bg-slate-50'
+                    ]}
+                  >
+                    <span class="mr-2">{lang.flag}</span>
+                    {lang.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <!-- CTA Button -->
           <a
-            href="/contact"
+            href={getLocalizedPath('/contact', locale)}
             id="cta-btn"
             class="px-6 py-2.5 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
           >
-            Get a Quote
+            {t('nav.getQuote')}
           </a>
         </div>
 
@@ -197,15 +227,15 @@ const isHomePage = currentPath === '/';
       <div class="px-4 py-6 space-y-4 max-h-[80vh] overflow-y-auto">
         <!-- Home -->
         <a
-          href="/"
+          href={getLocalizedPath('/', locale)}
           class:list={[
             'block font-semibold py-2',
-            currentPath === '/'
+            currentPath === '/' || currentPath === `/${locale}`
               ? 'text-blue-700'
               : 'text-slate-700 hover:text-blue-700'
           ]}
         >
-          Home
+          {t('nav.home')}
         </a>
 
         <!-- Services Accordion -->
@@ -218,7 +248,7 @@ const isHomePage = currentPath === '/';
             ]}
             id="mobile-services-btn"
           >
-            <span>Services</span>
+            <span>{t('nav.services')}</span>
             <ChevronDown class="w-4 h-4 transition-transform" id="mobile-services-chevron" />
           </button>
           <div class="hidden mt-4 space-y-4" id="mobile-services-menu">
@@ -241,46 +271,69 @@ const isHomePage = currentPath === '/';
               </div>
             ))}
             <a
-              href="/services"
+              href={getLocalizedPath('/services', locale)}
               class="block text-blue-700 font-semibold text-sm mt-4"
             >
-              View All Services →
+              {t('common.viewAll')} {t('nav.services')} →
             </a>
           </div>
         </div>
 
         <!-- About -->
         <a
-          href="/about"
+          href={getLocalizedPath('/about', locale)}
           class:list={[
             'block font-semibold py-2',
-            currentPath === '/about'
+            currentPath.includes('/about')
               ? 'text-blue-700'
               : 'text-slate-700 hover:text-blue-700'
           ]}
         >
-          About
+          {t('nav.about')}
         </a>
 
         <!-- Contact -->
         <a
-          href="/contact"
+          href={getLocalizedPath('/contact', locale)}
           class:list={[
             'block font-semibold py-2',
-            currentPath === '/contact'
+            currentPath.includes('/contact')
               ? 'text-blue-700'
               : 'text-slate-700 hover:text-blue-700'
           ]}
         >
-          Contact
+          {t('nav.contact')}
         </a>
+
+        <!-- Language Switcher Mobile -->
+        <div class="pt-4 border-t border-slate-200">
+          <div class="flex items-center space-x-2 mb-2 text-sm text-slate-600">
+            <Globe class="w-4 h-4" />
+            <span>Idioma / Language</span>
+          </div>
+          <div class="flex gap-2">
+            {languages.map((lang) => (
+              <a
+                href={getLocalizedPath(currentPath.replace(/^\/(en|es|fr)/, ''), lang.code)}
+                class:list={[
+                  'flex-1 px-3 py-2 rounded-md text-sm text-center transition-colors',
+                  lang.code === locale
+                    ? 'bg-blue-600 text-white font-semibold'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                ]}
+              >
+                {lang.flag}
+              </a>
+            ))}
+          </div>
+        </div>
 
         <!-- CTA Button -->
         <a
-          href="/contact"
+          href={getLocalizedPath('/contact', locale)}
           class="block w-full bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-800 hover:to-blue-950 text-white px-6 py-3 rounded-lg font-semibold text-center mt-4"
         >
-          Get a Quote
+          {t('nav.getQuote')}
         </a>
       </div>
     </div>
@@ -301,6 +354,8 @@ const isHomePage = currentPath === '/';
   const mobileServicesBtn = document.getElementById('mobile-services-btn');
   const mobileServicesMenu = document.getElementById('mobile-services-menu');
   const mobileServicesChevron = document.getElementById('mobile-services-chevron');
+  const langSwitcherBtn = document.getElementById('lang-switcher-btn');
+  const langMenu = document.getElementById('lang-menu');
   const mainNav = document.getElementById('main-nav');
   const logoText = document.getElementById('logo-text');
   const logoSubtext = document.getElementById('logo-subtext');
@@ -408,6 +463,28 @@ const isHomePage = currentPath === '/';
   mobileServicesBtn?.addEventListener('click', () => {
     mobileServicesMenu?.classList.toggle('hidden');
     mobileServicesChevron?.classList.toggle('rotate-180');
+  });
+
+  // Language Switcher
+  let langMenuTimeout;
+
+  langSwitcherBtn?.addEventListener('mouseenter', () => {
+    clearTimeout(langMenuTimeout);
+    langMenu?.classList.remove('hidden');
+  });
+
+  langSwitcherBtn?.addEventListener('mouseleave', () => {
+    langMenuTimeout = setTimeout(() => {
+      langMenu?.classList.add('hidden');
+    }, 200);
+  });
+
+  langMenu?.addEventListener('mouseenter', () => {
+    clearTimeout(langMenuTimeout);
+  });
+
+  langMenu?.addEventListener('mouseleave', () => {
+    langMenu?.classList.add('hidden');
   });
 
   // Scroll effect for header (only on home page)

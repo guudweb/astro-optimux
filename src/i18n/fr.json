@@ -1,0 +1,173 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "about": "À Propos",
+    "contact": "Contact",
+    "getQuote": "Obtenir un Devis",
+    "whatWeDo": "Ce Que Nous Faisons",
+    "itInfrastructure": "Infrastructure IT",
+    "physicalSecurity": "Sécurité Physique",
+    "webEmail": "Web & Email"
+  },
+  "hero": {
+    "slide1": {
+      "mainTitle": "Optimize Today,",
+      "mainTitleSecond": "Perform Tomorrow",
+      "tagline": "Solutions IT Innovantes pour",
+      "taglineSecond": "Votre Transformation Numérique",
+      "subtitle": "Expertise complète en infrastructure, cybersécurité, développement logiciel et services IT pour propulser votre entreprise vers le succès."
+    },
+    "slide2": {
+      "title": "Solutions Intégrées et Étendues",
+      "subtitle": "Comment les entreprises peuvent-elles surmonter les défis des environnements IT complexes? La simplicité radicale est la réponse."
+    },
+    "slide3": {
+      "title": "Service de Qualité et Support Après-Vente",
+      "subtitle": "Nous soutenons chaque solution que nous livrons avec des services dédiés de support et de maintenance."
+    },
+    "slide4": {
+      "title": "Fourniture et Acquisition d'Équipements IT",
+      "subtitle": "Avez-vous besoin d'acquisition d'équipements IT pour votre entreprise? Optimux offre des services complets d'acquisition d'équipements IT. Nous offrons des garanties sans tracas et ne nécessitons pas de contrats à long terme."
+    },
+    "learnMore": "Découvrez Nos Services",
+    "getStarted": "Commencer"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Solutions technologiques complètes pour les entreprises modernes",
+    "viewDetails": "Voir les Détails",
+    "cctv": {
+      "title": "Vidéosurveillance CCTV",
+      "description": "Systèmes de surveillance et de sécurité de pointe"
+    },
+    "access": {
+      "title": "Contrôle d'Accès",
+      "description": "Gestion sécurisée des accès aux bâtiments et zones"
+    },
+    "alarm": {
+      "title": "Systèmes d'Alarme et Incendie",
+      "description": "Détection et réponse d'urgence complètes"
+    },
+    "servers": {
+      "title": "Infrastructure IT",
+      "description": "Solutions de serveurs et réseaux d'entreprise"
+    },
+    "maintenance": {
+      "title": "Services Gérés et Support",
+      "description": "Maintenance experte et support continu"
+    },
+    "telecom": {
+      "title": "Télécommunications",
+      "description": "Systèmes de communication modernes"
+    },
+    "cashHandling": {
+      "title": "Solutions de Gestion d'Espèces",
+      "description": "Systèmes de traitement sécurisé d'espèces"
+    },
+    "printing": {
+      "title": "Location d'Imprimantes",
+      "description": "Solutions d'impression flexibles"
+    },
+    "xrayScanner": {
+      "title": "Machines d'Inspection à Rayons X",
+      "description": "Équipements de sécurité et d'inspection avancés"
+    }
+  },
+  "whyChooseUs": {
+    "title": "Pourquoi Nous Choisir?",
+    "subtitle": "Votre partenaire technologique de confiance",
+    "quality": {
+      "title": "Qualité Garantie",
+      "description": "Nous fournissons des solutions de premier ordre avec les plus hauts standards de qualité"
+    },
+    "innovation": {
+      "title": "Innovation",
+      "description": "Restez en avance avec les dernières technologies et solutions"
+    },
+    "customerFocus": {
+      "title": "Focus Client",
+      "description": "Vos besoins guident nos solutions et services"
+    },
+    "reliability": {
+      "title": "Fiabilité",
+      "description": "Support 24/7 et maintenance pour assurer la disponibilité"
+    }
+  },
+  "clients": {
+    "title": "Nos Clients Satisfaits",
+    "subtitle": "La confiance d'organisations leaders en Guinée Équatoriale"
+  },
+  "cta": {
+    "title": "Prêt à Transformer Votre Technologie?",
+    "subtitle": "Contactez notre équipe aujourd'hui pour une consultation gratuite",
+    "button": "Contactez-Nous Aujourd'hui"
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "subtitle": "Nous sommes là pour vous aider avec vos besoins technologiques",
+    "form": {
+      "name": "Nom Complet",
+      "email": "Email",
+      "phone": "Téléphone",
+      "company": "Entreprise",
+      "subject": "Sujet",
+      "message": "Message",
+      "send": "Envoyer le Message",
+      "sending": "Envoi...",
+      "success": "Message envoyé avec succès!",
+      "error": "Erreur lors de l'envoi du message. Veuillez réessayer."
+    },
+    "info": {
+      "phone": "Téléphone",
+      "email": "Email",
+      "address": "Adresse",
+      "hours": "Heures d'Ouverture"
+    }
+  },
+  "about": {
+    "title": "À Propos de OptimuxSolutions",
+    "subtitle": "Votre Partenaire Technologique de Confiance",
+    "mission": {
+      "title": "Notre Mission",
+      "content": "Fournir des solutions technologiques innovantes et fiables qui permettent aux entreprises d'atteindre leurs objectifs et de rester compétitives dans le paysage numérique."
+    },
+    "vision": {
+      "title": "Notre Vision",
+      "content": "Être le fournisseur leader de solutions technologiques complètes dans la région, reconnu pour l'excellence, l'innovation et un service client exceptionnel."
+    },
+    "values": {
+      "title": "Nos Valeurs",
+      "integrity": "Intégrité",
+      "excellence": "Excellence",
+      "innovation": "Innovation",
+      "partnership": "Partenariat"
+    },
+    "sectors": {
+      "title": "Secteurs Que Nous Servons",
+      "banking": "Banque & Finance",
+      "retail": "Commerce de Détail",
+      "healthcare": "Santé",
+      "education": "Éducation",
+      "government": "Gouvernement",
+      "hospitality": "Hôtellerie"
+    }
+  },
+  "footer": {
+    "description": "Votre partenaire de confiance pour des solutions IT innovantes. Nous transformons vos défis technologiques en opportunités de croissance.",
+    "quickLinks": "Liens Rapides",
+    "services": "Nos Services",
+    "followUs": "Suivez-Nous",
+    "copyright": "© 2024 OptimuxSolutions. Tous droits réservés.",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation"
+  },
+  "common": {
+    "learnMore": "En Savoir Plus",
+    "readMore": "Lire Plus",
+    "getStarted": "Commencer",
+    "contactUs": "Contactez-Nous",
+    "viewAll": "Voir Tout",
+    "backToHome": "Retour à l'Accueil"
+  }
+}

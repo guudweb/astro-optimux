@@ -1,0 +1,173 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "getQuote": "Obtener Cotización",
+    "whatWeDo": "Qué Hacemos",
+    "itInfrastructure": "Infraestructura TI",
+    "physicalSecurity": "Seguridad Física",
+    "webEmail": "Web & Email"
+  },
+  "hero": {
+    "slide1": {
+      "mainTitle": "Optimize Today,",
+      "mainTitleSecond": "Perform Tomorrow",
+      "tagline": "Soluciones TI Innovadoras para",
+      "taglineSecond": "Tu Transformación Digital",
+      "subtitle": "Experiencia completa en infraestructura, ciberseguridad, desarrollo de software y servicios TI para impulsar tu negocio al éxito."
+    },
+    "slide2": {
+      "title": "Soluciones Integradas y Extendidas",
+      "subtitle": "¿Cómo pueden las empresas superar los desafíos de entornos TI complejos? La simplicidad radical es la respuesta."
+    },
+    "slide3": {
+      "title": "Servicio de Calidad y Soporte Postventa",
+      "subtitle": "Respaldamos cada solución que entregamos con servicios dedicados de soporte y mantenimiento."
+    },
+    "slide4": {
+      "title": "Suministro y Adquisición de Equipos TI",
+      "subtitle": "¿Necesitas adquisición de equipos TI para tu empresa? Optimux ofrece servicios completos de adquisición de equipos TI. Ofrecemos garantías sin complicaciones y no requerimos contratos a largo plazo."
+    },
+    "learnMore": "Descubre Nuestros Servicios",
+    "getStarted": "Empezar"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones tecnológicas integrales para empresas modernas",
+    "viewDetails": "Ver Detalles",
+    "cctv": {
+      "title": "Videovigilancia CCTV",
+      "description": "Sistemas de vigilancia y seguridad de vanguardia"
+    },
+    "access": {
+      "title": "Control de Acceso",
+      "description": "Control seguro de acceso a edificios y zonas"
+    },
+    "alarm": {
+      "title": "Sistemas de Alarma e Incendio",
+      "description": "Detección y respuesta de emergencias integral"
+    },
+    "servers": {
+      "title": "Infraestructura TI",
+      "description": "Soluciones de servidores y redes empresariales"
+    },
+    "maintenance": {
+      "title": "Servicios Gestionados y Soporte",
+      "description": "Mantenimiento experto y soporte continuo"
+    },
+    "telecom": {
+      "title": "Telecomunicaciones",
+      "description": "Sistemas de comunicación modernos"
+    },
+    "cashHandling": {
+      "title": "Soluciones de Manejo de Efectivo",
+      "description": "Sistemas seguros de procesamiento de efectivo"
+    },
+    "printing": {
+      "title": "Arrendamiento y Alquiler de Impresoras",
+      "description": "Soluciones de impresión flexibles"
+    },
+    "xrayScanner": {
+      "title": "Máquinas de Inspección de Rayos X",
+      "description": "Equipos de seguridad e inspección avanzados"
+    }
+  },
+  "whyChooseUs": {
+    "title": "¿Por Qué Elegirnos?",
+    "subtitle": "Socio tecnológico confiable para tu negocio",
+    "quality": {
+      "title": "Calidad Garantizada",
+      "description": "Entregamos soluciones de primera clase con los más altos estándares de calidad"
+    },
+    "innovation": {
+      "title": "Innovación",
+      "description": "Mantente a la vanguardia con las últimas tecnologías y soluciones"
+    },
+    "customerFocus": {
+      "title": "Enfoque en el Cliente",
+      "description": "Tus necesidades impulsan nuestras soluciones y servicios"
+    },
+    "reliability": {
+      "title": "Confiabilidad",
+      "description": "Soporte 24/7 y mantenimiento para garantizar el tiempo de actividad"
+    }
+  },
+  "clients": {
+    "title": "Nuestros Clientes Satisfechos",
+    "subtitle": "La confianza de organizaciones líderes en Guinea Ecuatorial"
+  },
+  "cta": {
+    "title": "¿Listo para Transformar tu Tecnología?",
+    "subtitle": "Contacta con nuestro equipo hoy para una consulta gratuita",
+    "button": "Contáctanos Hoy"
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "Estamos aquí para ayudarte con tus necesidades tecnológicas",
+    "form": {
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "phone": "Teléfono",
+      "company": "Empresa",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "send": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado exitosamente!",
+      "error": "Error al enviar el mensaje. Por favor intenta de nuevo."
+    },
+    "info": {
+      "phone": "Teléfono",
+      "email": "Correo",
+      "address": "Dirección",
+      "hours": "Horario de Atención"
+    }
+  },
+  "about": {
+    "title": "Acerca de OptimuxSolutions",
+    "subtitle": "Tu Socio Tecnológico de Confianza",
+    "mission": {
+      "title": "Nuestra Misión",
+      "content": "Proporcionar soluciones tecnológicas innovadoras y confiables que empoderen a las empresas para alcanzar sus objetivos y mantenerse competitivas en el panorama digital."
+    },
+    "vision": {
+      "title": "Nuestra Visión",
+      "content": "Ser el proveedor líder de soluciones tecnológicas integrales en la región, reconocido por la excelencia, la innovación y el servicio al cliente excepcional."
+    },
+    "values": {
+      "title": "Nuestros Valores",
+      "integrity": "Integridad",
+      "excellence": "Excelencia",
+      "innovation": "Innovación",
+      "partnership": "Asociación"
+    },
+    "sectors": {
+      "title": "Sectores que Atendemos",
+      "banking": "Banca y Finanzas",
+      "retail": "Retail",
+      "healthcare": "Salud",
+      "education": "Educación",
+      "government": "Gobierno",
+      "hospitality": "Hospitalidad"
+    }
+  },
+  "footer": {
+    "description": "Tu socio de confianza para soluciones TI innovadoras. Transformamos tus desafíos tecnológicos en oportunidades de crecimiento.",
+    "quickLinks": "Enlaces Rápidos",
+    "services": "Nuestros Servicios",
+    "followUs": "Síguenos",
+    "copyright": "© 2024 OptimuxSolutions. Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
+  },
+  "common": {
+    "learnMore": "Saber Más",
+    "readMore": "Leer Más",
+    "getStarted": "Empezar",
+    "contactUs": "Contáctanos",
+    "viewAll": "Ver Todo",
+    "backToHome": "Volver al Inicio"
+  }
+}

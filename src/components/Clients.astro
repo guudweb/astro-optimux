@@ -1,4 +1,9 @@
 ---
+import { getLocale, useTranslations } from '../i18n/utils';
+
+const locale = getLocale(Astro.url);
+const t = useTranslations(locale);
+
 const clients = [
   { name: 'BGFI', logo: '/images/clients/bgfi.webp' },
   { name: 'CNDES', logo: '/images/clients/cndes.webp' },
@@ -15,9 +20,9 @@ const allClients = [...clients, ...clients];
 <section class="py-24 bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Our Satisfied Clients</h2>
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">{t('clients.title')}</h2>
       <p class="text-xl text-slate-600 max-w-3xl mx-auto">
-        Trusted by leading organizations across Equatorial Guinea
+        {t('clients.subtitle')}
       </p>
     </div>
   </div>
