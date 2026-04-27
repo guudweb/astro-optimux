@@ -5,11 +5,18 @@ import Footer from '../components/Footer.astro';
 import { Phone, Mail, MapPin, Clock, Send, ArrowRight } from 'lucide-astro';
 
 const contactInfo = {
-  phone: '+240 222 513 410',
+  phone: '+240 555 513 410',
   email: 'optimux@optimuxsolutions.com',
   address: 'Malabo II, Zona de Sampaka',
-  city: 'Malabo, Equatorial Guinea',
+  city: 'Equatorial Guinea',
   hours: 'Mon - Fri: 8:00 AM - 6:00 PM'
+};
+
+const contactInfo2 = {
+  phone: ' +237 673 316 982',
+  email: 'optimux@optimuxsolutions.com',
+  address: 'Akwa, Douala',
+  city: 'Cameroon',
 };
 ---
 
@@ -180,15 +187,6 @@ const contactInfo = {
 
               <div class="space-y-6">
                 <!-- Phone -->
-                <a href={`tel:${contactInfo.phone}`} class="flex items-center gap-4 group">
-                  <div class="w-12 h-12 bg-primary/10 group-hover:bg-primary rounded-2xl flex items-center justify-center transition-colors">
-                    <Phone class="w-6 h-6 text-primary group-hover:text-white transition-colors" />
-                  </div>
-                  <div>
-                    <p class="text-xs text-slate-400 uppercase tracking-wider font-medium">Phone</p>
-                    <p class="text-slate-900 font-semibold group-hover:text-primary transition-colors">{contactInfo.phone}</p>
-                  </div>
-                </a>
 
                 <!-- Email -->
                 <a href={`mailto:${contactInfo.email}`} class="flex items-center gap-4 group">
@@ -207,10 +205,25 @@ const contactInfo = {
                     <MapPin class="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p class="text-xs text-slate-400 uppercase tracking-wider font-medium">Address</p>
+                    <p class="text-xs text-slate-400 uppercase tracking-wider font-medium">Address I</p>
                     <p class="text-slate-900 font-semibold">
-                      {contactInfo.address}<br />
-                      {contactInfo.city}
+                      {contactInfo.city}<br />
+                      {contactInfo.address} <br>
+                      Tel: <a href={`Tel:${contactInfo.phone}`} class="hover:text-blue-400 transition-colors">{contactInfo.phone}</a>
+                    </p>
+                  </div>
+                </div>
+                <!-- Address 2 -->
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <MapPin class="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <p class="text-xs text-slate-400 uppercase tracking-wider font-medium">Address II</p>
+                    <p class="text-slate-900 font-semibold">
+                      {contactInfo2.city}<br />
+                      {contactInfo2.address} <br>
+                      Tel: <a href={`Tel:${contactInfo2.phone}`} class="hover:text-blue-400 transition-colors">{contactInfo2.phone}</a>
                     </p>
                   </div>
                 </div>

@@ -24,10 +24,10 @@ const services = [
 ];
 
 const contactInfo = {
-  phone: '+240 222 513 410',
+  phone: '+240 555 513 410',
   email: 'optimux@optimuxsolutions.com',
   address: 'Malabo II, Zona de Sampaka',
-  city: 'Malabo, Equatorial Guinea',
+  city: 'Equatorial Guinea',
 };
 const contactInfo2 = {
   phone: ' +237 673 316 982',
@@ -109,11 +109,11 @@ const contactInfo2 = {
         <ul class="space-y-4">
           <li class="flex items-start space-x-3">
             <MapPin class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
-            <span class="text-sm">{contactInfo.address}<br/>{contactInfo.city} <br><a href={`tel:${contactInfo.phone}`} class="text-sm hover:text-blue-400 transition-colors">
+            <span class="text-sm">{contactInfo.city}<br/>{contactInfo.address} <br><a href={`tel:${contactInfo.phone}`} class="text-sm hover:text-blue-400 transition-colors">
               {contactInfo.phone}
             </a></span>
           </li>
-            
+            <!-- Contact Info 2 -->
           <li class="flex items-start space-x-3">
             <MapPin class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
             <span class="text-sm">{contactInfo2.city}<br/>{contactInfo2.address} <br>{`${contactInfo2.phone}`}</span>
@@ -124,16 +124,6 @@ const contactInfo2 = {
             <a href={`mailto:${contactInfo.email}`} class="text-sm hover:text-blue-400 transition-colors">
               {contactInfo.email}
             </a>
-          </li>
-        </ul>
-      </div>
-            <!-- Contact Info 2 -->
-      <div>
-        <h3 class="font-bold text-lg mb-6 border-b-2 border-blue-600 pb-2 inline-block" style="color: white;">{t('nav.contact')}</h3>
-        <ul class="space-y-4">
-          <li class="flex items-start space-x-3">
-            <MapPin class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
-            <span class="text-sm">{contactInfo2.city}<br/>{contactInfo2.address} <br>{`${contactInfo2.phone}`}</span>
           </li>
         </ul>
       </div>
